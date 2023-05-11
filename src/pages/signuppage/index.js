@@ -1,2 +1,8 @@
 import style from "./index.module.css";
-//<div className={style.emailContentBody}>
+import React from "react";
+
+const SignUp = () => {
+  return <p>SignUp</p>;
+};
+
+export default SignUp;
