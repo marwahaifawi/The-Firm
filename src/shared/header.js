@@ -15,12 +15,19 @@ import ButtonApp from "./button";
 import NavBar from "../components/navbar";
 import { Stack } from "@mui/material";
 
-const drawerWidth = 240;
-const navItems = ["Home", "Solutions","Cases","About Us","Blog", "Contact Us"];
+
 const HeaderApp = (props) => {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
-
+  const drawerWidth = 240;
+  const navItems = [
+    "Home",
+    "Solutions",
+    "Cases",
+    "About Us",
+    "Blog",
+    "Contact Us",
+  ];
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
@@ -45,22 +52,32 @@ const HeaderApp = (props) => {
   return (
     <Stack>
       <AppBar component="nav" color="inherit" sx={{ boxShadow: "none" }}>
-        <Toolbar >
+        <Toolbar>
           <IconButton
             color="inherit"
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2,display: { xs: "block", sm: "block" , md:"none" , lg:"none" } }}
+            sx={{
+              mr: 2,
+              display: { xs: "block", sm: "block", md: "none", lg: "none" },
+            }}
           >
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" sx={{ flexGrow: 1, display: "block" }}>
             <Logo />
           </Typography>
-          <Stack direction='row' alignItems='center' spacing={{ xs: 1, sm: 3, md: 4 }} display={{ xs: "none", sm: "none" , md:"block" , lg:"block"}} >
+          <Stack
+            direction="row"
+            alignItems="center"
+            spacing={{ xs: 1, sm: 3, md: 4 }}
+            display={{ xs: "none", sm: "none", md: "block", lg: "block" }}
+          >
             {navItems.map((item) => (
-              <NavBar color="#1E1E1E" underline="hover" key={item}> {item}</NavBar>
+              <NavBar color="#1E1E1E" underline="hover" key={item}>
+                {item}
+              </NavBar>
             ))}
             <ButtonApp variant="contained">Sign Up</ButtonApp>
           </Stack>
@@ -76,7 +93,7 @@ const HeaderApp = (props) => {
             keepMounted: true, // Better open performance on mobile.
           }}
           sx={{
-            display: { xs: "block", sm: "block" , md:"none" , lg:"none" },
+            display: { xs: "block", sm: "block", md: "none", lg: "none" },
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
