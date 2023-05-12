@@ -18,6 +18,7 @@ export const dashboardTheme = createTheme({
   },
   typography: {
     fontFamily: ["Nunito"].join(","),
+    color:'primary'
   },
   components: {
     MuiButton: {
