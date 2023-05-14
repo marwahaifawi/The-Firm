@@ -1,12 +1,13 @@
 import React from "react";
-
 import HomePageHeroSection from "../../components/hompageherosection";
-import { Stack, Typography } from "@mui/material";
+import OurPartnersSection from "../../components/ourpartnerssection";
+
 
 const HomePage = () => {
   return (
     <>
-      <HomePageHeroSection />
+      <HomePageHeroSection/>
+      <OurPartnersSection/>
     </>
   );
 };
