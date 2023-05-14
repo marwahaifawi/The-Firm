@@ -1,12 +1,14 @@
 import React from "react";
-import Stack from '@mui/material/Stack';
+
+import HomePageHeroSection from "../../components/hompageherosection";
+import { Stack, Typography } from "@mui/material";
 
 const HomePage = () => {
-  return(
-    <Stack direction='row' fullWidth>
-
-    </Stack>
-    );
+  return (
+    <>
+      <HomePageHeroSection />
+    </>
+  );
 };
 
 export default HomePage;

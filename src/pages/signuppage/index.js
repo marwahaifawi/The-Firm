@@ -1,13 +1,8 @@
 import * as React from "react";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import ButtonApp from "../../shared/button";
@@ -61,7 +56,6 @@ export default function SignUp() {
                 label="Full name here"
                 autoFocus
                 sx={{
-                  boxShadow: "none",
                   borderLeft: "5px solid",
                   borderRadius:"11px",
                   boxShadow: '0px 5px 15px -3px rgba(60, 60, 59, 0.18)',
@@ -78,11 +72,9 @@ export default function SignUp() {
                 name="lastName"
                 autoComplete="family-name"
                 sx={{
-                  boxShadow: "none",
                   borderLeft: "5px solid",
                   borderRadius:"11px",
                   boxShadow: '0px 2px 3px rgba(0, 0, 0, 0.1)',
-
                   borderColor:"primary.main"
                 }}
               />
