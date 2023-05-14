@@ -52,7 +52,6 @@ export default function SignUp() {
                 label="Full name here"
                 autoFocus
                 sx={{
-                  boxShadow: "none",
                   borderLeft: "5px solid",
                   borderRadius:"11px",
                   boxShadow: '0px 5px 15px -3px rgba(60, 60, 59, 0.18)',
@@ -69,11 +68,9 @@ export default function SignUp() {
                 name="lastName"
                 autoComplete="family-name"
                 sx={{
-                  boxShadow: "none",
                   borderLeft: "5px solid",
                   borderRadius:"11px",
                   boxShadow: '0px 2px 3px rgba(0, 0, 0, 0.1)',
-
                   borderColor:"primary.main"
                 }}
               />

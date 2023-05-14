@@ -1,9 +1,6 @@
-import React from "react";
-import HomePageHeroSection from "../../components/hompageherosection";
-import OurPartnersSection from "../../components/ourpartnerssection";
-import { Box, Stack } from "@mui/material";
+import React from 'react';
+import Stack from "@mui/material/Stack";
 import { Container, Typography } from "@mui/material";
-
 import HomeImage from "../../assets/homepageHeroSectionPic.png";
 import { makeStyles } from "@mui/styles";
 
@@ -26,14 +23,10 @@ const useStyles = makeStyles((theme) => ({
     objectFit: "cover",
   },
 }));
-const HomePage = () => {
-  const classes = useStyles();
-
+const HomePageHeroSection = () => {
+    const classes = useStyles();
   return (
-    <>
-      <HomePageHeroSection/>
-      <OurPartnersSection/>
-      <Container>
+    <Container>
     <Stack
       spacing={5}
       alignItems="center"
@@ -55,8 +48,7 @@ const HomePage = () => {
       </Stack>
     </Stack>
   </Container>
-    </>
   );
-};
+}
 
-export default HomePage;
+export default HomePageHeroSection;
