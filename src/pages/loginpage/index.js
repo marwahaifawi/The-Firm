@@ -1,6 +1,4 @@
 import * as React from "react";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
@@ -46,7 +44,6 @@ const Login = () => {
                 name="lastName"
                 autoComplete="family-name"
                 sx={{
-                  boxShadow: "none",
                   borderLeft: "5px solid",
                   borderRadius: "11px",
                   boxShadow: "0px 2px 3px rgba(0, 0, 0, 0.1)",
@@ -63,7 +60,6 @@ const Login = () => {
                 name="email"
                 autoComplete="email"
                 sx={{
-                  boxShadow: "none",
                   borderLeft: "5px solid",
                   borderRadius: "11px",
                   boxShadow: "0px 2px 3px rgba(0, 0, 0, 0.1)",
