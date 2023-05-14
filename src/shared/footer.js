@@ -52,8 +52,8 @@ const FooterApp = () => {
         spacing={{ xs: 1, sm: 3, md: 4 }}
         display={{ xs: "none", sm: "none", md: "block", lg: "block" }}
       >
-        {navItems.map((item) => (
-          <NavBar color="#1E1E1E" underline="hover" key={item}>
+        {navItems.map((item , index) => (
+          <NavBar color="#1E1E1E" underline="hover" key={index}>
             {item}
           </NavBar>
         ))}
