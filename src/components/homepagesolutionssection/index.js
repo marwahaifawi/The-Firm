@@ -4,6 +4,9 @@ import ButtonApp from "../../shared/button";
 import { Stack, Grid } from "@mui/material";
 import { Container, Typography } from "@mui/material";
 import CoachingIcon from "../../assets/coachingIcon.svg";
+import DigitalPartner from ".././../assets/digitalPartnerIcon.svg";
+import SEO from "../../assets/seoIcon.svg";
+import Booking from "../../assets/bookingIcon.svg"
 const Solutions = [
   {
     icon: CoachingIcon,
@@ -11,18 +14,18 @@ const Solutions = [
     description: "Loren rasion gravida auemis bibenua tase",
   },
   {
-    icon: CoachingIcon,
-    title: "Coaching",
+    icon: DigitalPartner,
+    title: "Digital Partner",
     description: "Loren rasion gravida auemis bibenua tase",
   },
   {
-    icon: CoachingIcon,
-    title: "Coaching",
+    icon: SEO,
+    title: "SEO",
     description: "Loren rasion gravida auemis bibenua tase",
   },
   {
-    icon: CoachingIcon,
-    title: "Coaching",
+    icon: Booking,
+    title: "Booking",
     description: "Loren rasion gravida auemis bibenua tase",
   },
 ];
@@ -65,11 +68,7 @@ const SolutionsSection = () => {
             textAlign={{ xs: "center", lg: "left " }}
             variant="OVERLINE TEXT"
           >
-            Lorem Ipsum is simply dummy text of the printing and type setting
-            industry. Lorem Ipsum has been the <br/> industry's standard dummy text
-            ever since the 1500s,<br/> when an unknown printer took a galley of type
-            and <br/> scrambled it to make a type specimen book. It has <br/>survived not
-            only five centuries,
+            Discover optimal solutions for businesses: digital partnerships, SEO optimization, online booking, and professional coaching. These comprehensive strategies can propel your business forward, increase online visibility, streamline customer bookings, and provide expert guidance to enhance your success.
           </Typography>
           <ButtonApp variant="contained">Read More</ButtonApp>
         </Stack>

@@ -1,12 +1,12 @@
 import React from 'react';
-import { Box, Stack, Grid } from "@mui/material";
+import { Grid } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import {  Typography } from "@mui/material";
 const SolutionCard = ({item}) => {
     const Item = styled(Paper)(() => ({
         textAlign: "center",
-        width: "45%",
+        width: "55%",
         height: "15rem",
         background: "#FFFFFF",
         border: "1px solid rgba(15, 179, 175, 0.4)",
