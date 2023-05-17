@@ -30,7 +30,7 @@ const SolutionsSection = () => {
   return (
     <Container>
       <Stack
-          spacing={{ xs: 10, md: 2, lg: 0.5 }}
+          spacing={{ xs: 10, md: 2, lg: 8 }}
           alignItems="center"
         mt={10}
         direction={{
@@ -43,7 +43,7 @@ const SolutionsSection = () => {
         <Grid
           container
           rowSpacing={4}
-          columnSpacing={{ xs: 1, sm: 1, md: 0, lg: 0 }}
+          columnSpacing={{ xs: 1, sm: 1, md: -10, lg: -10 }}
         >
           {Solutions.map((item, index) => (
             <SolutionCard key={index} item={item} />
@@ -51,7 +51,7 @@ const SolutionsSection = () => {
         </Grid>
         <Stack
           spacing={2}
-          width={"50%"}
+          width={"60%"}
           justifyContent={{ xs: "center", md: "center", lg: "left" }}
           alignItems={{xs: "center", md: "center",lg:"flex-start"}}
         >
@@ -65,10 +65,10 @@ const SolutionsSection = () => {
             textAlign={{ xs: "center", lg: "left " }}
             variant="OVERLINE TEXT"
           >
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
+            Lorem Ipsum is simply dummy text of the printing and type setting
+            industry. Lorem Ipsum has been the <br/> industry's standard dummy text
+            ever since the 1500s,<br/> when an unknown printer took a galley of type
+            and <br/> scrambled it to make a type specimen book. It has <br/>survived not
             only five centuries,
           </Typography>
           <ButtonApp variant="contained">Read More</ButtonApp>
