@@ -30,8 +30,8 @@ const SolutionsSection = () => {
   return (
     <Container>
       <Stack
-        spacing={0.5}
-        alignItems="center"
+          spacing={{ xs: 10, md: 2, lg: 0.5 }}
+          alignItems="center"
         mt={10}
         direction={{
           lg: "row",
@@ -43,7 +43,7 @@ const SolutionsSection = () => {
         <Grid
           container
           rowSpacing={4}
-          columnSpacing={{ xs: 1, sm: 1, md: 1, lg: 1 }}
+          columnSpacing={{ xs: 1, sm: 1, md: 0, lg: 0 }}
         >
           {Solutions.map((item, index) => (
             <SolutionCard key={index} item={item} />
@@ -52,11 +52,11 @@ const SolutionsSection = () => {
         <Stack
           spacing={2}
           width={"50%"}
-          justifyContent="left"
-          alignItems="flex-start"
+          justifyContent={{ xs: "center", md: "center", lg: "left" }}
+          alignItems={{xs: "center", md: "center",lg:"flex-start"}}
         >
           <Typography
-            textAlign={{ xs: "center", md: "left", lg: "left" }}
+            textAlign={{ xs: "center", md: "center", lg: "left" }}
             variant="h4"
           >
             Perfect Solution for <br /> Your Business
