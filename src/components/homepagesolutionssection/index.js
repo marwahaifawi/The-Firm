@@ -6,7 +6,7 @@ import { Container, Typography } from "@mui/material";
 import CoachingIcon from "../../assets/coachingIcon.svg";
 import DigitalPartner from ".././../assets/digitalPartnerIcon.svg";
 import SEO from "../../assets/seoIcon.svg";
-import Booking from "../../assets/bookingIcon.svg"
+import Booking from "../../assets/bookingIcon.svg";
 const Solutions = [
   {
     icon: CoachingIcon,
@@ -33,8 +33,8 @@ const SolutionsSection = () => {
   return (
     <Container>
       <Stack
-          spacing={{ xs: 10, md: 2, lg: 8 }}
-          alignItems="center"
+        spacing={{ xs: 10, md: 2, lg: 8 }}
+        alignItems="center"
         mt={10}
         direction={{
           lg: "row",
@@ -56,7 +56,7 @@ const SolutionsSection = () => {
           spacing={2}
           width={"60%"}
           justifyContent={{ xs: "center", md: "center", lg: "left" }}
-          alignItems={{xs: "center", md: "center",lg:"flex-start"}}
+          alignItems={{ xs: "center", md: "center", lg: "flex-start" }}
         >
           <Typography
             textAlign={{ xs: "center", md: "center", lg: "left" }}
@@ -68,7 +68,11 @@ const SolutionsSection = () => {
             textAlign={{ xs: "center", lg: "left " }}
             variant="OVERLINE TEXT"
           >
-            Discover optimal solutions for businesses: digital partnerships, SEO optimization, online booking, and professional coaching. These comprehensive strategies can propel your business forward, increase online visibility, streamline customer bookings, and provide expert guidance to enhance your success.
+            Discover optimal solutions for businesses: digital partnerships, SEO
+            optimization, online booking, and professional coaching. These
+            comprehensive strategies can propel your business forward, increase
+            online visibility, streamline customer bookings, and provide expert
+            guidance to enhance your success.
           </Typography>
           <ButtonApp variant="contained">Read More</ButtonApp>
         </Stack>
