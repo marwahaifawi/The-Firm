@@ -1,7 +1,6 @@
 import React from 'react';
-import { Container, Stack, Stepper, Typography } from "@mui/material";
+import { Container, Stack,Typography } from "@mui/material";
 import IconCard from "../../components/iconcard";
-import windows from "../../assets/widowsImg.png";
 import googleHovered from "../../assets/hoverdGoogleImg.png"
 import Google from "../../assets/google.jpg"
 import WindowsHovered from "../../assets/windowsHovered.webp"
