@@ -1,38 +1,38 @@
 import React from "react";
 import { Container, Typography } from "@mui/material";
 import BlogCard from "../blogcard";
-import Blog1 from "../../assets/blog1.png";
-import Blog2 from "../../assets/blog2.png";
-import Blog3 from "../../assets/blog3.png";
-import avatar1 from "../../assets/avatar1.png";
-import avatar2 from "../../assets/avatar2.png";
-import avatar3 from "../../assets/avatar3.png";
+import MasteringLearningBlogImg from "../../assets/masteringLearningBlogImg.png";
+import DrivingWorkplaceBlogImg from "../../assets/drivingWorkplaceBlogImg.png";
+import MaximizingTrainingImg from "../../assets/maximizingTrainingImg.png";
+import AlexAvatar from "../../assets/alexAvatar.png";
+import MohAvatar from "../../assets/mohAvatar.png";
+import MarwaAvatar from "../../assets/marwaAvatar.png";
 import { Stack } from "@mui/material";
 
 const blogs = [
   {
     title: "Mastering Learning Experience",
     name: "Alex Liones",
-    avatar: avatar1,
-    image: Blog1,
+    avatar: AlexAvatar,
+    image: MasteringLearningBlogImg,
     date: "28,Aug 2020, 09:48:00",
     description:
       "Dive into the world of Learning Management Systems (LMS) and discover how they revolutionize education. Explore the benefits, features, and implementation of LMS .",
   },
   {
     title: "Driving Workplace Efficiency",
-    avatar: avatar2,
+    avatar: MohAvatar,
     name: "Moh Jess",
-    image: Blog2,
+    image: DrivingWorkplaceBlogImg,
     date: "28,Aug 2020, 09:48:00",
     description:
       "Explore how Learning Management Systems (LMS) extend beyond traditional classrooms and support continuing education and professional development. ",
   },
   {
-    title: "Maximizing Training ROI : How LMS Boosts ",
-    avatar: avatar3,
+    title: "Maximizing Training ROI : How LMS Boosts",
+    avatar: MarwaAvatar,
     name: "Marwa Salah",
-    image: Blog3,
+    image: MaximizingTrainingImg,
     date: "28,Aug 2020, 09:48:00",
     description:
       "Learn how Learning Management Systems (LMS) maximize return on investment (ROI) for corporate learning programs.",

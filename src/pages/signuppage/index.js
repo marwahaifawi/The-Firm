@@ -7,24 +7,12 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import ButtonApp from "../../shared/button";
 import { Divider, Stack } from "@mui/material";
-import { makeStyles } from '@mui/styles';
 
-const useStyles = makeStyles((theme) => ({
-  formControl: {
-    margin: theme.spacing(1),
-    minWidth: 120,
-    width: '100%',
-    border: '1px solid #ccc',
-    borderRadius: 4,
-    boxShadow: '0px 2px 3px rgba(0, 0, 0, 0.1)',
-  },
-}));
 
 export default function SignUp() {
-  
+
   const handleSubmit = (event) => {
     event.preventDefault();
-
   };
 
   return (
@@ -84,11 +72,9 @@ export default function SignUp() {
                 name="email"
                 autoComplete="email"
                 sx={{
-                  boxShadow: "none",
                   borderLeft: "5px solid",
                   borderRadius:"11px",
                   boxShadow: '0px 2px 3px rgba(0, 0, 0, 0.1)',
-
                   borderColor:"primary.main"
                 }}
               />
@@ -103,11 +89,9 @@ export default function SignUp() {
                 id="password"
                 autoComplete="new-password"
                 sx={{
-                  boxShadow: "none",
                   borderLeft: "5px solid",
                   borderRadius:"11px",
                   boxShadow: '0px 2px 3px rgba(0, 0, 0, 0.1)',
-
                   borderColor:"primary.main"
                 }}
               />

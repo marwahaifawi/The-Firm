@@ -17,11 +17,7 @@ const BlogCard = ({ image, name, description, avatar, date, title }) => {
         boxShadow: "0px 0px 13px rgba(0, 0, 0, 0.09)",
       }}
     >
-      <CardMedia
-        sx={{ height: 200, borderRadius: 5 }}
-        image={image}
-        title="green iguana"
-      />
+      <CardMedia sx={{ height: 200, borderRadius: 5 }} image={image} />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {title}
