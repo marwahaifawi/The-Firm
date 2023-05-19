@@ -9,7 +9,7 @@ import ReportingIcon from "../../assets/reportingicon.svg";
 import MarketResearch from "../../assets/marhetresearch.png";
 import MarketSearchingIcon from "../../assets/marketresearchicon.svg";
 import DataAnalysis from "../../assets/dataanalysis.png";
-import DataAnalysisIcon from "../../assets/dataanalysisIcon.svg"
+import DataAnalysisIcon from "../../assets/dataanalysisIcon.svg";
 
 const ReasonsToChooseUs = () => {
   const [clicked, setClicked] = useState(0);
