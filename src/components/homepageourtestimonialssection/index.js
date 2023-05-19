@@ -1,12 +1,14 @@
 import { CardMedia, Container, Stack, Typography } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import Testimonial1 from "../../assets/testimonial1.png";
 import Testimonial2 from "../../assets/testimonial2.png";
 import Testimonial3 from "../../assets/testimonial3.png";
+import Testimonial4 from "../../assets/testimonial4.png";
+import Testimonial5 from "../../assets/testimonial5.png";
 
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 import styles from "./index.module.css";
 
@@ -15,30 +17,35 @@ const testimonials = [
   {
     image: Testimonial1,
     description:
-      "Dive into the world of Learning Management Systems (LMS) and discover how they revolutionize education. Explore the benefits, features, and implementation of LMS .",
+      "Dive into the world of Learning Management Systems (LMS) and discover how they revolutionize education. Explore the benefits, features, and implementation of LMS.",
   },
   {
     image: Testimonial2,
     description:
-      "Dive into the world of Learning Management Systems (LMS) and discover how they revolutionize education. Explore the benefits, features, and implementation of LMS .",
+      "Dive into the world of Learning Management Systems (LMS) and discover how they revolutionize education. Explore the benefits, features, and implementation of LMS.",
   },
   {
-    image: Testimonial1,
+    image: Testimonial4,
     description:
-      "Dive into the world of Learning Management Systems (LMS) and discover how they revolutionize education. Explore the benefits, features, and implementation of LMS .",
+      "Dive into the world of Learning Management Systems (LMS) and discover how they revolutionize education. Explore the benefits, features, and implementation of LMS.",
   },
   {
     image: Testimonial3,
     description:
-      "Dive into the world of Learning Management Systems (LMS) and discover how they revolutionize education. Explore the benefits, features, and implementation of LMS .",
+      "Dive into the world of Learning Management Systems (LMS) and discover how they revolutionize education. Explore the benefits, features, and implementation of LMS.",
   },
   {
-    image: Testimonial2,
+    image: Testimonial5,
     description:
-      "Dive into the world of Learning Management Systems (LMS) and discover how they revolutionize education. Explore the benefits, features, and implementation of LMS .",
+      "Dive into the world of Learning Management Systems (LMS) and discover how they revolutionize education. Explore the benefits, features, and implementation of LMS.",
   },
 ];
 const OurTestimonials = () => {
+  const [activeSlideIndex, setActiveSlideIndex] = useState(1);
+
+  const handleSlideChange = (swiper) => {
+    setActiveSlideIndex(swiper.activeIndex + 1);
+  };
   return (
     <Container>
       <Typography variant="h4" textAlign="center">
@@ -46,18 +53,27 @@ const OurTestimonials = () => {
       </Typography>
       <Swiper
         slidesPerView={3}
-        spaceBetween={20}
+        spaceBetween={"10%"}
         pagination={{
           clickable: true,
         }}
         modules={[Pagination]}
         className={styles.swiper}
+        onSlideChange={handleSlideChange}
       >
         {testimonials.map((item, index) => (
           <SwiperSlide key={index}>
-            <Stack alignItems="center" spacing={2}>
-              <CardMedia sx={{ height: 100, width: 100 }} image={item.image} />
-              <Typography textAlign="center">{item.description}</Typography>
+            <Stack
+              alignItems="center"
+              spacing={3}
+              className={`${styles.swiperSlide} ${
+                index === activeSlideIndex ? styles.activeSlide : ""
+              }`}
+            >
+              <img src={item.image} />
+              <Typography width={"90%"} variant="caption" textAlign="center">
+                {item.description}
+              </Typography>
             </Stack>
           </SwiperSlide>
         ))}
