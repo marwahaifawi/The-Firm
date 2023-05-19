@@ -1,9 +1,9 @@
 import { Button } from "@mui/material";
 import React from "react";
 
-const ButtonApp = ({ children, color, disabled, size, variant }) => {
+const ButtonApp = ({ children, color, disabled, size, variant , onClick}) => {
   return (
-    <Button color={color} disabled={disabled} size={size} variant={variant}>
+    <Button  color={color} disabled={disabled} size={size} variant={variant} onClick={onClick}>
       {children}
     </Button>
   );

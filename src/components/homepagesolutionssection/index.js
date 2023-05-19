@@ -65,7 +65,7 @@ const SolutionsSection = () => {
             Perfect Solution for <br /> Your Business
           </Typography>
           <Typography
-            textAlign={{ xs: "center", lg: "left " }}
+            textAlign={{ xs: "center", lg: "left" }}
             variant="OVERLINE TEXT"
           >
             Discover optimal solutions for businesses: digital partnerships, SEO
