@@ -47,7 +47,7 @@ const OurTestimonials = () => {
     setActiveSlideIndex(swiper.activeIndex + 1);
   };
   return (
-    <Container>
+    <Stack mt={20}>
       <Typography variant="h4" textAlign="center">
         Our Testimonials
       </Typography>
@@ -78,7 +78,7 @@ const OurTestimonials = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-    </Container>
+    </Stack>
   );
 };
 

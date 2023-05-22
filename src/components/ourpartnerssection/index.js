@@ -12,7 +12,7 @@ import SafariHovered from "../../assets/hoveredSafari.png";
 import Grid from "@mui/material/Grid";
 const OurPartnersSection = () => {
   return (
-    <Stack justifyContent="center" alignItems="center" spacing={3}>
+    <Stack justifyContent="center" alignItems="center" spacing={3} mt={10}>
       <Typography variant="h4" textAlign="center">
         Our Partners
       </Typography>

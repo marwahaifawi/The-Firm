@@ -40,7 +40,7 @@ const blogs = [
 ];
 const OurBlogs = () => {
   return (
-    <Container>
+    <Stack spacing={5} mt={20}>
       <Typography variant="h4" textAlign="center">
         Our Blogs
       </Typography>
@@ -67,7 +67,7 @@ const OurBlogs = () => {
           />
         ))}
       </Stack>
-    </Container>
+    </Stack>
   );
 };
 
