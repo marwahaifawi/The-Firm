@@ -24,7 +24,7 @@ const SolutionCard = ({ item }) => {
       md={6}
       lg={6}
     >
-      <Item>
+      <Item className="clickable">
         <img src={item.icon} alt="solutionIcon" />
         <Typography p={1} variant="h5">
           {item.title}

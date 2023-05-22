@@ -9,6 +9,7 @@ import CardHeader from "@mui/material/CardHeader";
 const BlogCard = ({ image, name, description, avatar, date, title }) => {
   return (
     <Card
+      className="clickable"
       sx={{
         maxWidth: 345,
         paddingTop: 1,

@@ -62,7 +62,7 @@ const OurTestimonials = () => {
         onSlideChange={handleSlideChange}
       >
         {testimonials.map((item, index) => (
-          <SwiperSlide key={index}>
+          <SwiperSlide className="clickable" key={index} onClick={()=>setActiveSlideIndex(index)}>
             <Stack
               alignItems="center"
               spacing={3}

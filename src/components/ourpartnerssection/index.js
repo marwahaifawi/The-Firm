@@ -21,20 +21,21 @@ const OurPartnersSection = () => {
           <Grid
             justifyContent="center"
             alignItems="center"
+            className="clickable"
             item
             xs={12}
             sm={6}
             md={3}
           >
-            <IconCard iconImage={Google} hoverImage={googleHovered} />
+            <IconCard  iconImage={Google} hoverImage={googleHovered} />
           </Grid>
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid item xs={12} sm={6} md={3} className="clickable">
             <IconCard iconImage={Windows} hoverImage={WindowsHovered} />
           </Grid>
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid item xs={12} sm={6} md={3} className="clickable">
             <IconCard iconImage={FireFox} hoverImage={FireFoxHovered} />
           </Grid>
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid item xs={12} sm={6} md={3} className="clickable">
             <IconCard iconImage={Safari} hoverImage={SafariHovered} />
           </Grid>
         </Grid>

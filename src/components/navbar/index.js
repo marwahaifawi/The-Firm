@@ -8,6 +8,7 @@ const NavBar = ({ children, color, variant, underline, onClick }) => {
       color={color}
       variant={variant}
       underline={underline}
+      className="clickable"
     >
       {children}
     </Link>
