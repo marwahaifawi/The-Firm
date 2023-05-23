@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
       width: "85%",
     },
     [theme.breakpoints.up("lg")]: {
-      width: "98%",
+      width: "90%",
     },
     height: "auto",
     objectFit: "cover",
@@ -28,14 +28,14 @@ const CasesPageHeroSection = () => {
     <Stack
       spacing={5}
       alignItems="center"
-      mt={10}
+      mt={15}
       direction={{ lg: "row", md: "row", sm: "column", xs: "column" }}
     >
       <Stack spacing={2} width={"50%"} justifyContent="center">
         <Typography textAlign={{ xs: "center", lg: "left " }} variant="h4">
           Our Research &<br /> Case Studies.
         </Typography>
-        <Typography textAlign={{ xs: "center", lg: "left " }} variant="body2">
+        <Typography textAlign={{ xs: "center", lg: "left " }} variant="body1" lineHeight={2}>
           Exploring the frontiers of knowledge, illuminating pathways to
           success:
           <br /> Our research and case studies.
