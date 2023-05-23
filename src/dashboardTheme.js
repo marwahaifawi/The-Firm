@@ -25,6 +25,18 @@ export const dashboardTheme = createTheme({
       },
       // ad more breakpoints as needed
     },
+    h5: {
+      "@media (max-width: 850px)": {
+        fontSize: "1rem", // adjust font size for larger screens
+      },
+      // ad more breakpoints as needed
+    },
+    body1: {
+      "@media (max-width: 850px)": {
+        fontSize: ".8rem", // adjust font size for larger screens
+      },
+      // ad more breakpoints as needed
+    },
     // define other typography variants as needed
   },
   components: {
