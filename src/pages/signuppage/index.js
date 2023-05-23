@@ -106,10 +106,10 @@ export default function SignUp() {
         <Grid container justifyContent="center">
           <Grid item>
             <Divider variant="middle" />
-            <Link color="#A7A7A6" href="#" variant="body2" underline="hover">
+            <Link color="#A7A7A6"  variant="body2" >
               Already have an account? 
             </Link>
-            <Link  href="#" variant="body2" >
+            <Link  href="/login" variant="body2" underline="hover" >
                Sign in
             </Link>
           </Grid>

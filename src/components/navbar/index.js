@@ -1,7 +1,7 @@
 import { Link } from "@mui/material";
 import React from "react";
 
-const NavBar = ({ children, color, variant, underline, onClick }) => {
+const NavBar = ({ children, color, variant, underline, onClick , linkTo }) => {
   return (
     <Link
       onClick={onClick}
@@ -9,6 +9,7 @@ const NavBar = ({ children, color, variant, underline, onClick }) => {
       variant={variant}
       underline={underline}
       className="clickable"
+      href={linkTo}
     >
       {children}
     </Link>

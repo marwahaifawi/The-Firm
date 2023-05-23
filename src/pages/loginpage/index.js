@@ -97,7 +97,7 @@ const Login = () => {
               Don’t have an account ?
             </Link>
 
-            <Link href="#" variant="body2">
+            <Link href="/signup" variant="body2">
               SIGN UP
             </Link>
           </Grid>
