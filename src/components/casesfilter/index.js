@@ -117,7 +117,7 @@ const CasesFilter = () => {
                 date={item.date}
                 title={item.title}
               />
-              
+            
             </Grid>
           ))}
         </Grid>
