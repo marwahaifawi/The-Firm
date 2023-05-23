@@ -92,7 +92,7 @@ const CasesFilter = () => {
           }}
         />
       </Stack>
-      <Container >
+      <Container>
         <Grid
           mt={4}
           container
@@ -117,7 +117,6 @@ const CasesFilter = () => {
                 date={item.date}
                 title={item.title}
               />
-            
             </Grid>
           ))}
         </Grid>

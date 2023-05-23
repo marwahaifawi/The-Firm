@@ -5,11 +5,9 @@ import Testimonial2 from "../../assets/testimonial2.png";
 import Testimonial3 from "../../assets/testimonial3.png";
 import Testimonial4 from "../../assets/testimonial4.png";
 import Testimonial5 from "../../assets/testimonial5.png";
-
 import "swiper/css";
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
-
 import styles from "./index.module.css";
 
 import { Pagination } from "swiper";
@@ -62,7 +60,11 @@ const OurTestimonials = () => {
         onSlideChange={handleSlideChange}
       >
         {testimonials.map((item, index) => (
-          <SwiperSlide className="clickable" key={index} onClick={()=>setActiveSlideIndex(index)}>
+          <SwiperSlide
+            className="clickable"
+            key={index}
+            onClick={() => setActiveSlideIndex(index)}
+          >
             <Stack
               alignItems="center"
               spacing={3}
