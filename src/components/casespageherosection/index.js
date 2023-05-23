@@ -1,9 +1,8 @@
 import React from "react";
 import Stack from "@mui/material/Stack";
 import { Typography } from "@mui/material";
-import HomeImage from "../../assets/homepageHeroSectionImg.png";
+import CasesImage from "../../assets/casesPageHeroSectionImg.png";
 import { makeStyles } from "@mui/styles";
-
 const useStyles = makeStyles((theme) => ({
   img: {
     [theme.breakpoints.up("xs")]: {
@@ -22,8 +21,9 @@ const useStyles = makeStyles((theme) => ({
     objectFit: "cover",
   },
 }));
-const HomePageHeroSection = () => {
+const CasesPageHeroSection = () => {
   const classes = useStyles();
+
   return (
     <Stack
       spacing={5}
@@ -33,19 +33,19 @@ const HomePageHeroSection = () => {
     >
       <Stack spacing={2} width={"50%"} justifyContent="center">
         <Typography textAlign={{ xs: "center", lg: "left " }} variant="h4">
-          Get Business <br /> Solutions with The Firm.
+          Our Research &<br /> Case Studies.
         </Typography>
         <Typography textAlign={{ xs: "center", lg: "left " }} variant="body2">
-          Lorem Ipsum is simply dummy text of the printing <br />
-          and typesetting industry. Lorem Ipsum has been <br />
-          the industry's standard dummy.
+          Exploring the frontiers of knowledge, illuminating pathways to
+          success:
+          <br /> Our research and case studies.
         </Typography>
       </Stack>
       <Stack alignItems="center" width={"50%"}>
-        <img alt="heroSectionPic" src={HomeImage} className={classes.img} />
+        <img alt="heroSectionPic" src={CasesImage} className={classes.img} />
       </Stack>
     </Stack>
   );
 };
 
-export default HomePageHeroSection;
+export default CasesPageHeroSection;
