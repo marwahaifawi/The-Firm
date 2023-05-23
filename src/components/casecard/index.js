@@ -7,10 +7,10 @@ import Divider from "@mui/material/Divider";
 import Avatar from "@mui/material/Avatar";
 import CardHeader from "@mui/material/CardHeader";
 import ButtonApp from "../../shared/button";
+import { Box } from "@mui/material";
 const CaseCard = ({ image, description, title }) => {
   return (
     <Card
-      className="clickable"
       sx={{
         maxWidth: 345,
         paddingTop: 1,
@@ -21,14 +21,16 @@ const CaseCard = ({ image, description, title }) => {
     >
       <CardMedia sx={{ height: 200, borderRadius: 5 }} image={image} />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+        <Typography gutterBottom variant="h5">
           {title}
         </Typography>
-        <Typography gutterBottom variant="body2" color="text.secondary">
+        <Typography mb={2} variant="body2" color="text.secondary">
           {description}
         </Typography>
         <Divider variant="middle" />
-        <ButtonApp variant={"contained"}>Read More</ButtonApp>
+        <Box sx={{ marginTop: 2, display: "flex", justifyContent: "center" }}>
+          <ButtonApp variant={"contained"}>Read More</ButtonApp>
+        </Box>
       </CardContent>
     </Card>
   );

@@ -102,9 +102,9 @@ const CasesFilter = () => {
             md: "stretch",
             lg: "stretch",
           }}
-          justifyContent="center"
           direction={{ md: "row", lg: "row" }}
-          spacing={4}
+          spacing={5}
+          columns={{ xs: 4, sm: 8, md: 12 }}
         >
           {blogs.map((item, index) => (
             <Grid item xs={4}>
@@ -117,6 +117,7 @@ const CasesFilter = () => {
                 date={item.date}
                 title={item.title}
               />
+              
             </Grid>
           ))}
         </Grid>
