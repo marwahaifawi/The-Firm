@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Stack, Typography } from "@mui/material";
-import IconCard from "../../components/iconcard";
+import IconCard from "../iconcard";
 import googleHovered from "../../assets/hoverdGoogleImg.png";
 import Google from "../../assets/google.jpg";
 import WindowsHovered from "../../assets/windowsHovered.webp";

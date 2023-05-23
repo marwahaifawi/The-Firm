@@ -1,6 +1,6 @@
 import React from "react";
 import HomePageHeroSection from "../../components/hompageherosection";
-import OurPartnersSection from "../../components/ourpartnerssection";
+import OurPartnersSection from "../../components/homepageourpartnerssection";
 import SolutionsSection from "../../components/homepagesolutionssection";
 import ReasonsToChooseUs from "../../components/homepagereasonstochooseussection";
 import OurBlogs from "../../components/homepageourblogssection";

@@ -65,7 +65,8 @@ const SolutionsSection = () => {
         </Typography>
         <Typography
           textAlign={{ xs: "center", lg: "left" }}
-          variant="OVERLINE TEXT"
+          variant="body2"
+          lineHeight={2}
         >
           Discover optimal solutions for businesses: digital partnerships, SEO
           optimization, online booking, and professional coaching. These

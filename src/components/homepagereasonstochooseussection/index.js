@@ -55,8 +55,10 @@ const ReasonsToChooseUs = () => {
         <Typography variant="h4" textAlign="center">
           Reason to Choose Us
         </Typography>
-        <Typography textAlign="center" variant="OVERLINE TEXT">
-        Experience excellence, trust the difference: Choose us as your preferred partner for unparalleled legal solutions and a track record of success.
+        <Typography textAlign="center" variant="OVERLINE TEXT" lineHeight={2}>
+          Experience excellence, trust the difference: Choose us as your
+          preferred partner for unparalleled legal solutions and a track record
+          of success.
         </Typography>
         <Stack
           spacing={3}
@@ -95,11 +97,11 @@ const ReasonsToChooseUs = () => {
           <Stack
             paddingTop={"1.5rem"}
             direction="column"
-            spacing={5}
+            spacing={3}
             width={"70%"}
           >
             <Typography variant="h6"> {reasons[clicked].name}</Typography>
-            <Typography variant="body2">
+            <Typography variant="body2" lineHeight={2}>
               {reasons[clicked].description}
             </Typography>
             <ButtonApp variant="contained">Read More</ButtonApp>

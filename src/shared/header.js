@@ -80,6 +80,7 @@ const HeaderApp = (props) => {
                 underline="hover"
                 key={index}
                 linkTo={item.link}
+                variant="h6"
               >
                 {item.text}
               </NavBar>

@@ -35,10 +35,15 @@ const HomePageHeroSection = () => {
         <Typography textAlign={{ xs: "center", lg: "left " }} variant="h4">
           Get Business <br /> Solutions with The Firm.
         </Typography>
-        <Typography textAlign={{ xs: "center", lg: "left " }} variant="body2">
-          Lorem Ipsum is simply dummy text of the printing <br />
-          and typesetting industry. Lorem Ipsum has been <br />
-          the industry's standard dummy.
+        <Typography
+          textAlign={{ xs: "center", lg: "left " }}
+          variant="body2"
+          lineHeight={2}
+        >
+          We provide innovative and tailored business solutions to help you
+          achieve your goals. <br />
+          Our platform offers a comprehensive suite of services designed to
+          enhance your productivity, efficiency, and profitability.
         </Typography>
       </Stack>
       <Stack alignItems="center" width={"50%"}>
