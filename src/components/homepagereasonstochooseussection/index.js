@@ -56,11 +56,7 @@ const ReasonsToChooseUs = () => {
           Reason to Choose Us
         </Typography>
         <Typography textAlign="center" variant="OVERLINE TEXT">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries,
+        Experience excellence, trust the difference: Choose us as your preferred partner for unparalleled legal solutions and a track record of success.
         </Typography>
         <Stack
           spacing={3}

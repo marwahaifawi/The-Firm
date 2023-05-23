@@ -5,10 +5,12 @@ import OurCases from "../../components/casespageourcases";
 
 const CasePage = () => {
   return (
-    <Container>
-      <CasesPageHeroSection />
+    <>
+      <Container>
+        <CasesPageHeroSection />
+      </Container>
       <OurCases />
-    </Container>
+    </>
   );
 };
 
