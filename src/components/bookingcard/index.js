@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import ButtonApp from "../../shared/button";
 import { Box } from "@mui/material";
-const CaseCard = ({ image, description, title }) => {
+const BookingCard = ({ image, description, title }) => {
   return (
     <Card
       sx={{
@@ -27,11 +27,11 @@ const CaseCard = ({ image, description, title }) => {
         </Typography>
         <Divider variant="middle" />
         <Box sx={{ marginTop: 2, display: "flex", justifyContent: "center" }}>
-          <ButtonApp variant={"contained"}>Read More</ButtonApp>
+          <ButtonApp variant={"contained"}>Book Now</ButtonApp>
         </Box>
       </CardContent>
     </Card>
   );
-};
+}
 
-export default CaseCard;
+export default BookingCard;
