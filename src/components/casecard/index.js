@@ -7,11 +7,10 @@ import Divider from "@mui/material/Divider";
 import { useNavigate } from "react-router-dom";
 import ButtonApp from "../../shared/button";
 import { Box } from "@mui/material";
-const CaseCard = ({ image, description, title , caseID }) => {
+const CaseCard = ({ image, description, title, caseID }) => {
   const navigate = useNavigate();
   const handleReadMore = () => {
     navigate(`/casesPage/${caseID}`);
-    
   };
   return (
     <Card
@@ -33,7 +32,9 @@ const CaseCard = ({ image, description, title , caseID }) => {
         </Typography>
         <Divider variant="middle" />
         <Box sx={{ marginTop: 2, display: "flex", justifyContent: "center" }}>
-          <ButtonApp variant={"contained"} onClick={handleReadMore}>Read More</ButtonApp>
+          <ButtonApp variant={"contained"} onClick={handleReadMore}>
+            Read More
+          </ButtonApp>
         </Box>
       </CardContent>
     </Card>
