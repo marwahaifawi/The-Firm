@@ -43,10 +43,10 @@ const CaseDetailsHeroSection = ({ caseName, description, image }) => {
           success:
           <br /> Our research and case studies.
         </Typography>
-        <Box>
+        <Stack direction={{ lg: "row", md: "row", sm: "column" }} spacing={2}>
           <ButtonApp variant={"contained"}> Digital Partner</ButtonApp>
           <ButtonApp variant={"contained"}> Coaching</ButtonApp>
-        </Box>
+        </Stack>
       </Stack>
       <Stack alignItems="center" width={"50%"}>
         <img alt="heroSectionPic" src={image} className={classes.img} />
