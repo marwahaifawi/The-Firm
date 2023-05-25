@@ -3,6 +3,7 @@ import SolutionsSection from "../../components/homepagesolutionssection";
 import { Container } from "@mui/material";
 import OurSolutionsCards from "../../components/solutionpageoursolutions";
 import SolutionDescription from "../../components/solutionpagesolutiondescriptionsection";
+import OurTestimonials from "../../components/homepageourtestimonialssection";
 
 const SolutionPage = () => {
   return (
@@ -10,6 +11,7 @@ const SolutionPage = () => {
       <SolutionsSection />
       <OurSolutionsCards/>
       <SolutionDescription/>
+      <OurTestimonials/>
       
     </Container>
   );

@@ -70,7 +70,7 @@ const OurTestimonials = () => {
                 index === activeSlideIndex ? styles.activeSlide : ""
               }`}
             >
-              <img src={item.image} />
+              <img alt="testimonialImg" src={item.image} />
               <Typography width={"90%"} variant="caption" textAlign="center">
                 {item.description}
               </Typography>
