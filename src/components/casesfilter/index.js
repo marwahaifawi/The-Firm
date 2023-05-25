@@ -120,7 +120,7 @@ const CasesFilter = () => {
                 image={item.image}
                 description={item.description}
                 title={item.title}
-                id={item.id}
+                caseID={item.id}
               />
             </Grid>
           ))}

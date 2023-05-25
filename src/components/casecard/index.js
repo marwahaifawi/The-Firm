@@ -7,11 +7,10 @@ import Divider from "@mui/material/Divider";
 import { useNavigate } from "react-router-dom";
 import ButtonApp from "../../shared/button";
 import { Box } from "@mui/material";
-const CaseCard = ({ image, description, title , id }) => {
+const CaseCard = ({ image, description, title , caseID }) => {
   const navigate = useNavigate();
   const handleReadMore = () => {
-    console.log(id)
-    navigate(`/casesPage/${id}`);
+    navigate(`/casesPage/${caseID}`);
     
   };
   return (
