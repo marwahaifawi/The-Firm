@@ -32,16 +32,14 @@ const CaseDetailsHeroSection = ({ caseName, description, image }) => {
     >
       <Stack spacing={2} width={"50%"} justifyContent="center">
         <Typography textAlign={{ xs: "center", lg: "left " }} variant="h4">
-          Our Research &<br /> Case Studies.
+        {caseName}
         </Typography>
         <Typography
           textAlign={{ xs: "center", lg: "left " }}
           variant="body1"
           lineHeight={2}
         >
-          Exploring the frontiers of knowledge, illuminating pathways to
-          success:
-          <br /> Our research and case studies.
+        {description}
         </Typography>
         <Stack direction={{ lg: "row", md: "row", sm: "column" }} spacing={2}>
           <ButtonApp variant={"contained"}> Digital Partner</ButtonApp>
