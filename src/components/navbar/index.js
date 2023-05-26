@@ -18,9 +18,7 @@ const NavBar = ({ children, color, variant, underline, onClick, linkTo }) => {
       color={color}
       variant={variant}
       className="clickable"
-      style={{
-        textDecoration: underline ? "underline" : "none",
-      }}
+      underline={underline ? underline : "none"}
     >
       {children}
     </Link>
