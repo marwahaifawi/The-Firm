@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
@@ -11,6 +11,12 @@ import { useNavigate } from "react-router-dom";
 
 export default function SignUp() {
   const navigate = useNavigate();
+  const [user , setUser] = useState([{
+    FullName:"",
+    Email:"",
+    Password:"",
+    PasswordConfirm:""
+  }])
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -37,12 +43,11 @@ export default function SignUp() {
        <Grid container spacing={2} justifyContent="center">
             <Grid item xs={12}>
               <TextField
-                autoComplete="given-name"
-                name="firstName"
+                name="fullName"
                 required
                 fullWidth
-                id="firstName"
-                label="Full name here"
+                id="fullName"
+                label="Full Name here"
                 autoFocus
                 sx={{
                   borderLeft: "5px solid",
@@ -50,38 +55,42 @@ export default function SignUp() {
                   boxShadow: '0px 5px 15px -3px rgba(60, 60, 59, 0.18)',
                   borderColor:"primary.main"
                 }}
+                onChange={(e)=>setUser({...user,FullName:e.target.value})}
               />
             </Grid>
+            {console.log(user.FullName , user)}
             <Grid item xs={12}>
               <TextField
                 required
                 fullWidth
-                id="lastName"
+                id="Email"
                 label="Enter your email address "
-                name="lastName"
-                autoComplete="family-name"
+                name="Email"
                 sx={{
                   borderLeft: "5px solid",
                   borderRadius:"11px",
                   boxShadow: '0px 2px 3px rgba(0, 0, 0, 0.1)',
                   borderColor:"primary.main"
                 }}
+                onChange={(e)=>setUser({...user,Email:e.target.value})}
+
               />
             </Grid>
             <Grid item xs={12}>
               <TextField
                 required
                 fullWidth
-                id="email"
+                id="password"
                 label="Enter your password "
-                name="email"
-                autoComplete="email"
+                name="password"
                 sx={{
                   borderLeft: "5px solid",
                   borderRadius:"11px",
                   boxShadow: '0px 2px 3px rgba(0, 0, 0, 0.1)',
                   borderColor:"primary.main"
                 }}
+                onChange={(e)=>setUser({...user,Password:e.target.value})}
+
               />
             </Grid>
             <Grid item xs={12}>
@@ -89,16 +98,17 @@ export default function SignUp() {
                 required
                 fullWidth
                 name="password"
-                label="Conform password"
+                label="Confirm password"
                 type="password"
                 id="password"
-                autoComplete="new-password"
                 sx={{
                   borderLeft: "5px solid",
                   borderRadius:"11px",
                   boxShadow: '0px 2px 3px rgba(0, 0, 0, 0.1)',
                   borderColor:"primary.main"
                 }}
+                onChange={(e)=>setUser({...user,PasswordConfirmed:e.target.value})}
+
               />
             </Grid>
             <Grid item>
