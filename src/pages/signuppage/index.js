@@ -8,18 +8,35 @@ import Container from "@mui/material/Container";
 import ButtonApp from "../../shared/button";
 import { Divider, Stack } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../firebase";
 
 export default function SignUp() {
   const navigate = useNavigate();
-  const [user , setUser] = useState([{
-    FullName:"",
-    Email:"",
-    Password:"",
-    PasswordConfirm:""
-  }])
+  const [user, setUser] = useState([
+    {
+      FullName: "",
+      Email: "",
+      Password: "",
+      PasswordConfirm: "",
+    },
+  ]);
 
   const handleSubmit = (event) => {
-    event.preventDefault();
+    // event.preventDefault();
+    // signInWithEmailAndPassword
+    // const data = new FormData(event.currentTarget);
+    // console.log({
+    //   email: data.get("email"),
+    //   password: data.get("password"),
+    // });
+    createUserWithEmailAndPassword(auth, user.Email, user.Password)
+      .then((userCredential) => {
+        console.log(userCredential);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const handleSignInClick = () => {
@@ -40,7 +57,7 @@ export default function SignUp() {
           mt={3}
           mb={2}
         >
-       <Grid container spacing={2} justifyContent="center">
+          <Grid container spacing={2} justifyContent="center">
             <Grid item xs={12}>
               <TextField
                 name="fullName"
@@ -51,14 +68,13 @@ export default function SignUp() {
                 autoFocus
                 sx={{
                   borderLeft: "5px solid",
-                  borderRadius:"11px",
-                  boxShadow: '0px 5px 15px -3px rgba(60, 60, 59, 0.18)',
-                  borderColor:"primary.main"
+                  borderRadius: "11px",
+                  boxShadow: "0px 5px 15px -3px rgba(60, 60, 59, 0.18)",
+                  borderColor: "primary.main",
                 }}
-                onChange={(e)=>setUser({...user,FullName:e.target.value})}
+                onChange={(e) => setUser({ ...user, FullName: e.target.value })}
               />
             </Grid>
-            {console.log(user.FullName , user)}
             <Grid item xs={12}>
               <TextField
                 required
@@ -68,12 +84,11 @@ export default function SignUp() {
                 name="Email"
                 sx={{
                   borderLeft: "5px solid",
-                  borderRadius:"11px",
-                  boxShadow: '0px 2px 3px rgba(0, 0, 0, 0.1)',
-                  borderColor:"primary.main"
+                  borderRadius: "11px",
+                  boxShadow: "0px 2px 3px rgba(0, 0, 0, 0.1)",
+                  borderColor: "primary.main",
                 }}
-                onChange={(e)=>setUser({...user,Email:e.target.value})}
-
+                onChange={(e) => setUser({ ...user, Email: e.target.value })}
               />
             </Grid>
             <Grid item xs={12}>
@@ -85,12 +100,11 @@ export default function SignUp() {
                 name="password"
                 sx={{
                   borderLeft: "5px solid",
-                  borderRadius:"11px",
-                  boxShadow: '0px 2px 3px rgba(0, 0, 0, 0.1)',
-                  borderColor:"primary.main"
+                  borderRadius: "11px",
+                  boxShadow: "0px 2px 3px rgba(0, 0, 0, 0.1)",
+                  borderColor: "primary.main",
                 }}
-                onChange={(e)=>setUser({...user,Password:e.target.value})}
-
+                onChange={(e) => setUser({ ...user, Password: e.target.value })}
               />
             </Grid>
             <Grid item xs={12}>
@@ -103,16 +117,21 @@ export default function SignUp() {
                 id="password"
                 sx={{
                   borderLeft: "5px solid",
-                  borderRadius:"11px",
-                  boxShadow: '0px 2px 3px rgba(0, 0, 0, 0.1)',
-                  borderColor:"primary.main"
+                  borderRadius: "11px",
+                  boxShadow: "0px 2px 3px rgba(0, 0, 0, 0.1)",
+                  borderColor: "primary.main",
                 }}
-                onChange={(e)=>setUser({...user,PasswordConfirmed:e.target.value})}
-
+                onChange={(e) =>
+                  setUser({ ...user, PasswordConfirmed: e.target.value })
+                }
               />
             </Grid>
             <Grid item>
-              <ButtonApp type="submit" variant="contained">
+              <ButtonApp
+                onClick={handleSubmit}
+                type="submit"
+                variant="contained"
+              >
                 Submit
               </ButtonApp>
             </Grid>
@@ -124,7 +143,12 @@ export default function SignUp() {
             <Link color="#A7A7A6" variant="body2">
               Already have an account?
             </Link>
-            <Link className="clickable" variant="body2" underline="hover" onClick={handleSignInClick}>
+            <Link
+              className="clickable"
+              variant="body2"
+              underline="hover"
+              onClick={handleSignInClick}
+            >
               Sign in
             </Link>
           </Grid>

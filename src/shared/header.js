@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext, createContext } from "react";
 import { Link } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -15,8 +15,10 @@ import Logo from "./Logo/index";
 import ButtonApp from "./button";
 import NavBar from "../components/navbar";
 import { Stack } from "@mui/material";
+const UserContext = createContext();
 
 const HeaderApp = (props) => {
+  const UserAuthentication = useContext(UserContext);
   const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
   const drawerWidth = 240;
@@ -30,7 +32,6 @@ const HeaderApp = (props) => {
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
-
   const drawer = (
     <Box onClick={handleDrawerToggle}>
       <List>
@@ -87,6 +88,11 @@ const HeaderApp = (props) => {
             <ButtonApp linkTo="/signup" variant="contained">
               Sign Up
             </ButtonApp>
+            {UserAuthentication !== null && (
+              <ButtonApp linkTo="/signup" variant="contained">
+                Sign out
+              </ButtonApp>
+            )}
           </Stack>
         </Toolbar>
       </AppBar>
