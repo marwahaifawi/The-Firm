@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Stack, CardMedia } from "@mui/material";
-import { Container, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import ButtonApp from "../../shared/button";
 import Branding from "../../assets/brandingImg.png";
 import BrandingIcon from "../../assets/branding.svg";

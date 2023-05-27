@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Typography } from "@mui/material";
+import { Grid} from "@mui/material";
 import Coaching from "../../assets/coachingSolutionImg.png";
 import DigitalPartner from "../../assets/digitalPartnerSolutionImg.png";
 import SEO from "../../assets/seoSolutionImg.png";

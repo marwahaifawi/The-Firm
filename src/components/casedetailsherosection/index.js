@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Stack, Typography } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import ButtonApp from "../../shared/button";
 const useStyles = makeStyles((theme) => ({
