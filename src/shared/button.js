@@ -3,14 +3,6 @@ import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 const ButtonApp = ({ children, color, disabled, size, variant, onClick, linkTo }) => {
-  const navigate = useNavigate();
-
-  const handleClick = () => {
-    if (onClick) {
-      onClick();
-    }
-    navigate(linkTo);
-  };
 
   return (
     <Button
@@ -18,7 +10,7 @@ const ButtonApp = ({ children, color, disabled, size, variant, onClick, linkTo }
       disabled={disabled}
       size={size}
       variant={variant}
-      onClick={handleClick}
+      onClick={onClick}
     >
       {children}
     </Button>

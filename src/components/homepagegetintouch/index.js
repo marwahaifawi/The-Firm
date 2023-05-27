@@ -47,7 +47,7 @@ const GetInTouch = () => {
           Get In Touch
         </Typography>
 
-        <div>
+        <Box>
           <TextField
             id="standard-required"
             label="Name"
@@ -60,8 +60,8 @@ const GetInTouch = () => {
             defaultValue="Your Email"
             variant="standard"
           />
-        </div>
-        <div>
+        </Box>
+        <Box>
           <TextField
             id="standard-required"
             label="Phone"
@@ -81,10 +81,10 @@ const GetInTouch = () => {
               </MenuItem>
             ))}
           </TextField>
-        </div>
-        <div>
+        </Box>
+        <Box>
           <ButtonApp variant="contained">Submit</ButtonApp>
-        </div>
+        </Box>
       </Box>
     </Stack>
   );

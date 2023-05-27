@@ -15,10 +15,16 @@ import Logo from "./Logo/index";
 import ButtonApp from "./button";
 import NavBar from "../components/navbar";
 import { Stack } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import { auth } from "../firebase";
+import { signOut } from "firebase/auth";
+
 const UserContext = createContext();
 
 const HeaderApp = (props) => {
-  const UserAuthentication = useContext(UserContext);
+  const userAuthentication = useContext(UserContext);
+  const navigate = useNavigate();
+
   const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
   const drawerWidth = 240;
@@ -31,6 +37,13 @@ const HeaderApp = (props) => {
   ];
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
+  };
+
+  const handleSignOutClick = () => {
+    navigate("/login");
+  };
+  const handleSignUpClick = () => {
+    navigate("/signup");
   };
   const drawer = (
     <Box onClick={handleDrawerToggle}>
@@ -85,12 +98,14 @@ const HeaderApp = (props) => {
                 {item.text}
               </NavBar>
             ))}
-            <ButtonApp linkTo="/signup" variant="contained">
-              Sign Up
-            </ButtonApp>
-            {UserAuthentication !== null && (
-              <ButtonApp linkTo="/signup" variant="contained">
-                Sign out
+
+            {userAuthentication !== null ? (
+              <ButtonApp onClick={handleSignOutClick} variant="contained">
+                Sign Out
+              </ButtonApp>
+            ) : (
+              <ButtonApp onClick={handleSignUpClick} variant="contained">
+                Sign Up
               </ButtonApp>
             )}
           </Stack>
