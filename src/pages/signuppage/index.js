@@ -23,20 +23,7 @@ export default function SignUp() {
   ]);
 
   const handleSubmit = (event) => {
-    // event.preventDefault();
-    // signInWithEmailAndPassword
-    // const data = new FormData(event.currentTarget);
-    // console.log({
-    //   email: data.get("email"),
-    //   password: data.get("password"),
-    // });
-    createUserWithEmailAndPassword(auth, user.Email, user.Password)
-      .then((userCredential) => {
-        console.log(userCredential);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    event.preventDefault();
   };
 
   const handleSignInClick = () => {
@@ -140,15 +127,10 @@ export default function SignUp() {
         <Grid container justifyContent="center">
           <Grid item>
             <Divider variant="middle" />
-            <Link color="#A7A7A6" variant="body2">
-              Already have an account?
+            <Link color="#A7A7A6"  variant="body2" >
+              Already have an account? 
             </Link>
-            <Link
-              className="clickable"
-              variant="body2"
-              underline="hover"
-              onClick={handleSignInClick}
-            >
+            <Link className="clickable" variant="body2" underline="hover" onClick={handleSignInClick}>
               Sign in
             </Link>
           </Grid>
