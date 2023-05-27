@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { Link, Typography } from "@mui/material";
+import { Link } from "@mui/material";
 
 const NavBar = ({ children, color, variant, underline, onClick, linkTo }) => {
   const navigate = useNavigate();

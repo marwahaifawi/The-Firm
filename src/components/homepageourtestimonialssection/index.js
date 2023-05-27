@@ -1,4 +1,4 @@
-import { CardMedia, Container, Stack, Typography } from "@mui/material";
+import {Stack, Typography } from "@mui/material";
 import React, { useState } from "react";
 import FirstTestimonial from "../../assets/testimonial1.png";
 import SecondTestimonial from "../../assets/testimonial2.png";
@@ -72,7 +72,7 @@ const OurTestimonials = () => {
                 index === activeSlideIndex ? styles.activeSlide : ""
               }`}
             >
-              <img src={item.image} />
+              <img alt="testimonialImg" src={item.image} />
               <Typography width={"90%"} variant="caption" textAlign="center">
                 {item.description}
               </Typography>
