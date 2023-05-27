@@ -1,4 +1,5 @@
-import * as React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
@@ -15,18 +16,16 @@ import ButtonApp from "./button";
 import NavBar from "../components/navbar";
 import { Stack } from "@mui/material";
 
-
 const HeaderApp = (props) => {
   const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const drawerWidth = 240;
   const navItems = [
-    "Home",
-    "Solutions",
-    "Cases",
-    "About Us",
-    "Blog",
-    "Contact Us",
+    { text: "Home", link: "/" },
+    { text: "Solutions", link: "/solutions" },
+    { text: "Cases", link: "/casesPage" },
+    { text: "Blogs", link: "/blog" },
+    { text: "Contact Us", link: "/contact" },
   ];
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -35,10 +34,10 @@ const HeaderApp = (props) => {
   const drawer = (
     <Box onClick={handleDrawerToggle}>
       <List>
-        {navItems.map((item , index) => (
+        {navItems.map((item, index) => (
           <ListItem key={index} disablePadding>
-            <ListItemButton>
-              <ListItemText primary={item} />
+            <ListItemButton component={Link} to={item.link}>
+              <ListItemText primary={item.text} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -74,12 +73,20 @@ const HeaderApp = (props) => {
             spacing={{ xs: 1, sm: 3, md: 4 }}
             display={{ xs: "none", sm: "none", md: "block", lg: "block" }}
           >
-            {navItems.map((item , index) => (
-              <NavBar color="#1E1E1E" underline="hover" key={index}>
-                {item}
+            {navItems.map((item, index) => (
+              <NavBar
+                color="#1E1E1E"
+                underline="hover"
+                key={index}
+                linkTo={item.link}
+                variant="h6"
+              >
+                {item.text}
               </NavBar>
             ))}
-            <ButtonApp variant="contained">Sign Up</ButtonApp>
+            <ButtonApp linkTo="/signup" variant="contained">
+              Sign Up
+            </ButtonApp>
           </Stack>
         </Toolbar>
       </AppBar>

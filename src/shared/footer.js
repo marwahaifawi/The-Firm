@@ -9,8 +9,7 @@ const FooterApp = () => {
     "Home",
     "Solutions",
     "Cases",
-    "About Us",
-    "Blog",
+    "Blogs",
     "Contact Us",
   ];
   const socials = [

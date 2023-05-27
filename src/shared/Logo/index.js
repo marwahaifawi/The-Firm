@@ -1,7 +1,21 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import LogoImage from "../../assets/logo.png";
 const Logo = () => {
-  return <img src={LogoImage} alt="logo" />;
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/");
+  };
+
+  return (
+    <img
+      src={LogoImage}
+      alt="logo"
+      onClick={handleClick}
+      className="clickable"
+    />
+  );
 };
 
 export default Logo;

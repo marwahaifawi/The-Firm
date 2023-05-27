@@ -5,8 +5,8 @@ export const dashboardTheme = createTheme({
     values: {
       xs: 0,
       sm: 600,
-      md: 960,
-      lg: 1280,
+      md: 1150,
+      lg: 1300,
       xl: 1920,
     },
   },
@@ -18,7 +18,26 @@ export const dashboardTheme = createTheme({
   },
   typography: {
     fontFamily: ["Nunito"].join(","),
-    color:'primary'
+    h4: {
+      "@media (max-width: 600px)": {
+        fontSize: "1.5rem", // adjust font size for larger screens
+        lineHeight: "2rem", // adjust line height for larger screens
+      },
+      // ad more breakpoints as needed
+    },
+    h5: {
+      "@media (max-width: 850px)": {
+        fontSize: "1rem", // adjust font size for larger screens
+      },
+      // ad more breakpoints as needed
+    },
+    body1: {
+      "@media (max-width: 850px)": {
+        fontSize: ".8rem", // adjust font size for larger screens
+      },
+      // ad more breakpoints as needed
+    },
+    // define other typography variants as needed
   },
   components: {
     MuiButton: {

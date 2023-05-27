@@ -7,22 +7,24 @@ import CasePage from "./pages/casespage";
 import Login from "./pages/loginpage";
 import SignUp from "./pages/signuppage";
 import SolutionPage from "./pages/solutionspage";
+import ScrollToTop from "./shared/scrolltotop";
 
 const Router = () => {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<LayoutApp />}>
-          <Route path="/" element={<HomePage />} />
-          <Route path="casePage" element={<CasePage />}>
-            <Route path=":caseDetails" element={<CaseDetailsPage />} />
+      <ScrollToTop>
+        <Routes>
+          <Route path="/" element={<LayoutApp />}>
+            <Route path="/" element={<HomePage />} />
+            <Route path="casesPage" element={<CasePage />} />
+            <Route path="casesPage/:caseID" element={<CaseDetailsPage />} />
+            <Route path="login" element={<Login />} />
+            <Route path="signup" element={<SignUp />} />
+            <Route path="solutions" element={<SolutionPage />} />
+            <Route path="*" element={<div>Error</div>} />
           </Route>
-          <Route path="login" element={<Login />} />
-          <Route path="signup" element={<SignUp />} />
-          <Route path="solutions" element={<SolutionPage />} />
-          <Route path="*" element={<>Error</>} />
-        </Route>
-      </Routes>
+        </Routes>
+      </ScrollToTop>
     </BrowserRouter>
   );
 };

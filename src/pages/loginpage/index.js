@@ -9,8 +9,11 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import ButtonApp from "../../shared/button";
 import { Divider, Stack } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -18,6 +21,10 @@ const Login = () => {
       email: data.get("email"),
       password: data.get("password"),
     });
+  };
+
+  const handleSignUpClick = () => {
+    navigate("/signup");
   };
 
   return (
@@ -97,7 +104,7 @@ const Login = () => {
               Don’t have an account ?
             </Link>
 
-            <Link href="#" variant="body2">
+            <Link className="clickable" variant="body2" onClick={handleSignUpClick}>
               SIGN UP
             </Link>
           </Grid>
@@ -106,4 +113,5 @@ const Login = () => {
     </Container>
   );
 };
+
 export default Login;

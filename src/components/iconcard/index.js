@@ -21,11 +21,11 @@ const IconCard = ({ iconImage, hoverImage }) => {
     boxShadow: "0px 10px 20px rgba(5, 5, 5, 0.08)",
     display: "flex",
     justifyContent: "center",
-    backgroundImage: () => `url(${iconImage})`,
+    backgroundImage: iconImage,
     backgroundSize: "cover",
     backgroundPosition: "center",
     "&:hover": {
-      backgroundImage: () => `url(${hoverImage})`,
+      backgroundImage: hoverImage,
     },
   }));
   const styles = {
