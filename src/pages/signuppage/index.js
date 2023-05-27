@@ -7,17 +7,12 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import ButtonApp from "../../shared/button";
 import { Divider, Stack } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+
 
 export default function SignUp() {
-  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-  };
-
-  const handleSignInClick = () => {
-    navigate("/login");
   };
 
   return (
@@ -34,7 +29,7 @@ export default function SignUp() {
           mt={3}
           mb={2}
         >
-       <Grid container spacing={2} justifyContent="center">
+          <Grid container spacing={2} justifyContent="center">
             <Grid item xs={12}>
               <TextField
                 autoComplete="given-name"
@@ -111,11 +106,11 @@ export default function SignUp() {
         <Grid container justifyContent="center">
           <Grid item>
             <Divider variant="middle" />
-            <Link color="#A7A7A6" variant="body2">
-              Already have an account?
+            <Link color="#A7A7A6"  variant="body2" >
+              Already have an account? 
             </Link>
-            <Link className="clickable" variant="body2" underline="hover" onClick={handleSignInClick}>
-              Sign in
+            <Link  href="/login" variant="body2" underline="hover" >
+               Sign in
             </Link>
           </Grid>
         </Grid>
