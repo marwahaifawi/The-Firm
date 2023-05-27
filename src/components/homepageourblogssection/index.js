@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Grid, Typography } from "@mui/material";
+import {Grid, Typography} from "@mui/material";
 import BlogCard from "../blogcard";
 import MasteringLearningBlogImg from "../../assets/masteringLearningBlogImg.png";
 import DrivingWorkplaceBlogImg from "../../assets/drivingWorkplaceBlogImg.png";

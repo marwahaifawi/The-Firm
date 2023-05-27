@@ -4,14 +4,9 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
-import { useNavigate } from "react-router-dom";
 import ButtonApp from "../../shared/button";
 import { Box } from "@mui/material";
-const CaseCard = ({ image, description, title, caseID }) => {
-  const navigate = useNavigate();
-  const handleReadMore = () => {
-    navigate(`/casesPage/${caseID}`);
-  };
+const BookingCard = ({ image, description, title }) => {
   return (
     <Card
       sx={{
@@ -32,13 +27,11 @@ const CaseCard = ({ image, description, title, caseID }) => {
         </Typography>
         <Divider variant="middle" />
         <Box sx={{ marginTop: 2, display: "flex", justifyContent: "center" }}>
-          <ButtonApp variant={"contained"} onClick={handleReadMore}>
-            Read More
-          </ButtonApp>
+          <ButtonApp variant={"contained"}>Book Now</ButtonApp>
         </Box>
       </CardContent>
     </Card>
   );
-};
+}
 
-export default CaseCard;
+export default BookingCard;
