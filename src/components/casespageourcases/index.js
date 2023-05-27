@@ -1,6 +1,6 @@
 import React from "react";
 import Stack from "@mui/material/Stack";
-import { Typography, Container } from "@mui/material";
+import { Typography } from "@mui/material";
 import CasesFilter from "../casesfilter";
 const OurCases = () => {
   return (
