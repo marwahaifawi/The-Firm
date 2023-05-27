@@ -13,7 +13,6 @@ const Router = () => {
   return (
     <BrowserRouter>
       <ScrollToTop>
-        {" "}
         <Routes>
           <Route path="/" element={<LayoutApp />}>
             <Route path="/" element={<HomePage />} />
