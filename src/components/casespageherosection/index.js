@@ -23,7 +23,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 const CasesPageHeroSection = () => {
   const classes = useStyles();
-
   return (
     <Stack
       spacing={5}
