@@ -38,7 +38,7 @@ const BookingModal = () => {
         }}
       >
         <Fade in={open}>
-          <Stack p={4} sx={style} width={"50%"} height={"50%"}>
+          <Stack p={4} sx={style} width={"50%"} height={"75%"}>
             <Typography
               color={"primary"}
               textAlign={"center"}
