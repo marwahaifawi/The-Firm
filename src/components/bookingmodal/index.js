@@ -5,6 +5,7 @@ import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import Typography from "@mui/material/Typography";
 import ButtonApp from "../../shared/button";
+import BookingStepper from "../bookingstepper";
 const style = {
   position: "absolute",
   top: "50%",
@@ -37,16 +38,16 @@ const BookingModal = () => {
         }}
       >
         <Fade in={open}>
-          <Stack p={4} sx={style} width={"50%"} height={"50%"} >
-            <Typography color={"primary"} textAlign={"center"} id="transition-modal-title" variant="h5" component="h5">
+          <Stack p={4} sx={style} width={"50%"} height={"50%"}>
+            <Typography
+              color={"primary"}
+              textAlign={"center"}
+              id="transition-modal-title"
+              variant="h5"
+            >
               Book An Appointment
             </Typography>
-            <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-            </Typography>
-            <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-            </Typography>
+            <BookingStepper />
           </Stack>
         </Fade>
       </Modal>
