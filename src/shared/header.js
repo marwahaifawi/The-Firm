@@ -39,6 +39,7 @@ const HeaderApp = (props) => {
   };
 
   const handleSignOutClick = () => {
+    console.log(userAuthentication)
     navigate("/login");
   };
   const handleSignUpClick = () => {
@@ -98,7 +99,7 @@ const HeaderApp = (props) => {
               </NavBar>
             ))}
 
-            {userAuthentication !== null ? (
+            {userAuthentication ? (
               <ButtonApp onClick={handleSignOutClick} variant="contained">
                 Sign Out
               </ButtonApp>

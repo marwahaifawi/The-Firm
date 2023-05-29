@@ -24,6 +24,12 @@ export default function SignUp() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    createUserWithEmailAndPassword(auth,user.Email,user.Password).then((userCredential)=>{
+    console.log(userCredential);
+    })
+    .catch((error)=>{
+      console.log(error);
+    })
   };
 
   const handleSignInClick = () => {
