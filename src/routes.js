@@ -8,6 +8,7 @@ import Login from "./pages/loginpage";
 import SignUp from "./pages/signuppage";
 import SolutionPage from "./pages/solutionspage";
 import ScrollToTop from "./shared/scrolltotop";
+import AppointmentsPage from "./pages/appointmentspage";
 
 const Router = () => {
   return (
@@ -21,6 +22,7 @@ const Router = () => {
             <Route path="login" element={<Login />} />
             <Route path="signup" element={<SignUp />} />
             <Route path="solutions" element={<SolutionPage />} />
+            <Route path="appointments" element={<AppointmentsPage />} />
             <Route path="*" element={<div>Error</div>} />
           </Route>
         </Routes>
