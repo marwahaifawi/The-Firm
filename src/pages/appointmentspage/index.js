@@ -15,7 +15,13 @@ const AppointmentsPage = () => {
   ];
   return (
     <Stack>
-      <Typography mt={20} textAlign={"center"} variant="h4" color={"primary"}>
+      <Typography
+        gutterBottom
+        mt={20}
+        textAlign={"center"}
+        variant="h4"
+        color={"primary"}
+      >
         Your Appointments
       </Typography>
       <Container mt={5}>

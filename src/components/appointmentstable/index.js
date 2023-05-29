@@ -7,9 +7,14 @@ import {
   TableHead,
   TableRow,
   Paper,
+  IconButton,
 } from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
+
 
 const AppointmentsTable = ({ appointments }) => {
+
   return (
     <TableContainer component={Paper}>
       <Table>
@@ -20,6 +25,7 @@ const AppointmentsTable = ({ appointments }) => {
             <TableCell>Date</TableCell>
             <TableCell>Time</TableCell>
             <TableCell>Additional Information</TableCell>
+            <TableCell>Action</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -30,6 +36,14 @@ const AppointmentsTable = ({ appointments }) => {
               <TableCell>{appointment.date}</TableCell>
               <TableCell>{appointment.time}</TableCell>
               <TableCell>{appointment.additionalInfo}</TableCell>
+              <TableCell>
+                <IconButton>
+                  <EditIcon />
+                </IconButton>
+                <IconButton color={"error"}>
+                  <DeleteIcon />
+                </IconButton>
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
