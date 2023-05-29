@@ -47,7 +47,7 @@ const BookingModal = () => {
             >
               Book An Appointment
             </Typography>
-            <BookingStepper />
+            <BookingStepper onClose={handleClose} />
           </Stack>
         </Fade>
       </Modal>

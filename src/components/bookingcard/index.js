@@ -27,11 +27,11 @@ const BookingCard = ({ image, description, title }) => {
         </Typography>
         <Divider variant="middle" />
         <Box sx={{ marginTop: 2, display: "flex", justifyContent: "center" }}>
-          <BookingModal/>
+          <BookingModal />
         </Box>
       </CardContent>
     </Card>
   );
-}
+};
 
 export default BookingCard;

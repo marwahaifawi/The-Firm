@@ -34,12 +34,12 @@ const steps = [
   },
 ];
 
-const BookingStepper = () => {
+const BookingStepper = ({ onClose }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [activeStep, setActiveStep] = React.useState(0);
   const [appointmentData, setAppointmentData] = React.useState({});
-console.log(appointmentData)
+  console.log(appointmentData);
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
@@ -149,7 +149,9 @@ console.log(appointmentData)
                 <Box sx={{ flex: "1 1 auto" }} />
                 <Button
                   variant="contained"
-                  onClick={handleNext}
+                  onClick={
+                    activeStep === steps.length - 1 ? onClose : handleNext
+                  }
                   sx={{ mt: 1, mr: 1 }}
                 >
                   {activeStep === steps.length - 1 ? "Finish" : "Next"}
