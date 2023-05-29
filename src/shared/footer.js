@@ -6,11 +6,10 @@ import SocialBar from "../components/socialbar";
 
 const FooterApp = () => {
   const navItems = [
-    "Home",
-    "Solutions",
-    "Cases",
-    "Blogs",
-    "Contact Us",
+    { text: "Home", link: "/" },
+    { text: "Solutions", link: "/solutions" },
+    { text: "Cases", link: "/casesPage" },
+    { text: "Appointments", link: "/Appointments" },
   ];
   const socials = [
     {
@@ -52,8 +51,8 @@ const FooterApp = () => {
         display={{ xs: "none", sm: "none", md: "block", lg: "block" }}
       >
         {navItems.map((item , index) => (
-          <NavBar color="#1E1E1E" underline="hover" key={index}>
-            {item}
+          <NavBar color="#1E1E1E" underline="hover" key={index} linkTo={item.link}>
+            {item.text}
           </NavBar>
         ))}
       </Stack>

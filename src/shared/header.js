@@ -32,8 +32,7 @@ const HeaderApp = (props) => {
     { text: "Home", link: "/" },
     { text: "Solutions", link: "/solutions" },
     { text: "Cases", link: "/casesPage" },
-    { text: "Blogs", link: "/blog" },
-    { text: "Contact Us", link: "/contact" },
+    { text: "Appointments", link: "/Appointments" },
   ];
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);

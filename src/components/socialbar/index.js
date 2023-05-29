@@ -60,7 +60,6 @@ const SocialBar = ({ socials }) => {
             onMouseLeave={() => handleMouseLeave()}
           >
             {hoveredIndex === index ? (
-              // use iconHover when this icon is hovered over
               <Box color="primary.main">{icon}</Box>
             ) : (
               <Box>{icon}</Box>
