@@ -11,7 +11,6 @@ const NavBar = ({ children, color, variant, underline, onClick, linkTo }) => {
     }
     navigate(linkTo);
   };
-
   return (
     <Link
       onClick={handleClick}

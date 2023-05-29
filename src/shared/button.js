@@ -1,8 +1,6 @@
-import React from "react";
 import { Button } from "@mui/material";
-
-const ButtonApp = ({ children, color, disabled, size, variant, onClick }) => {
-
+import React from "react";
+const ButtonApp = ({ children, color, disabled, size, variant, onClick, linkTo }) => {
 
   return (
     <Button
