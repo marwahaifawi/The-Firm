@@ -31,7 +31,7 @@ const HeaderApp = (props) => {
   const navItems = [
     { text: "Home", link: "/" },
     { text: "Solutions", link: "/solutions" },
-    { text: "Cases", link: "/casePage" },
+    { text: "Cases", link: "/casesPage" },
     { text: "Blogs", link: "/blog" },
     { text: "Contact Us", link: "/contact" },
   ];

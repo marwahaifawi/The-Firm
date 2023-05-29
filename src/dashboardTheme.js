@@ -27,13 +27,13 @@ export const dashboardTheme = createTheme({
     },
     h5: {
       "@media (max-width: 850px)": {
-        fontSize: "1rem", // adjust font size for larger screens
+        fontSize: "1.3rem", // adjust font size for larger screens
       },
       // ad more breakpoints as needed
     },
     body1: {
       "@media (max-width: 850px)": {
-        fontSize: ".8rem", // adjust font size for larger screens
+        fontSize: ".7rem", // adjust font size for larger screens
       },
       // ad more breakpoints as needed
     },

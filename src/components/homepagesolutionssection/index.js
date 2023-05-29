@@ -2,7 +2,7 @@ import React from "react";
 import SolutionCard from "../../components/solutioncard";
 import ButtonApp from "../../shared/button";
 import { Stack, Grid } from "@mui/material";
-import { Container, Typography } from "@mui/material";
+import {Typography } from "@mui/material";
 import CoachingIcon from "../../assets/coachingIcon.svg";
 import DigitalPartner from ".././../assets/digitalPartnerIcon.svg";
 import SEO from "../../assets/seoIcon.svg";

@@ -1,7 +1,17 @@
 import { Link } from "@mui/material";
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { Link } from "@mui/material";
 
-const NavBar = ({ children, color, variant, underline, onClick , linkTo }) => {
+const NavBar = ({ children, color, variant, underline, onClick, linkTo }) => {
+  const navigate = useNavigate();
+  const handleClick = (event) => {
+    event.preventDefault();
+    if (onClick) {
+      onClick(event);
+    }
+    navigate(linkTo);
+  };
   return (
     <Link
       onClick={onClick}
@@ -9,7 +19,7 @@ const NavBar = ({ children, color, variant, underline, onClick , linkTo }) => {
       variant={variant}
       underline={underline}
       className="clickable"
-      href={linkTo}
+      underline={underline ? underline : "none"}
     >
       {children}
     </Link>

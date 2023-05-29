@@ -4,8 +4,8 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
-import ButtonApp from "../../shared/button";
 import { Box } from "@mui/material";
+import BookingModal from "../bookingmodal";
 const BookingCard = ({ image, description, title }) => {
   return (
     <Card
@@ -27,11 +27,11 @@ const BookingCard = ({ image, description, title }) => {
         </Typography>
         <Divider variant="middle" />
         <Box sx={{ marginTop: 2, display: "flex", justifyContent: "center" }}>
-          <ButtonApp variant={"contained"}>Book Now</ButtonApp>
+          <BookingModal />
         </Box>
       </CardContent>
     </Card>
   );
-}
+};
 
 export default BookingCard;

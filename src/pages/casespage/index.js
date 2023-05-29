@@ -6,15 +6,11 @@ import OurTestimonials from "../../components/homepageourtestimonialssection";
 
 const CasePage = () => {
   return (
-    <>
-      <Container>
-        <CasesPageHeroSection />
-      </Container>
+    <Container>
+      <CasesPageHeroSection />
       <OurCases />
-      <Container>
-        <OurTestimonials />
-      </Container>
-    </>
+      <OurTestimonials />
+    </Container>
   );
 };
 
