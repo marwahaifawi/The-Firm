@@ -42,3 +42,39 @@ const Authentication = () => {
 };
 
 export default Authentication;
+// import React, { useState, createContext, useEffect, useContext } from "react";
+// import { auth } from "../firebase";
+// import {
+//   createUserWithEmailAndPassword,
+//   signInWithEmailAndPassword,
+//   onAuthStateChanged,
+// } from "firebase/auth";
+
+// const userContext = createContext();
+
+// export function Authentication({ children }) {
+//   const [user, setUser] = useState({});
+//   function signUp(email, password) {
+//     console.log("signup")
+//     return createUserWithEmailAndPassword(auth, email, password);
+//   }
+//   function logIn(email, password) {
+//     return signInWithEmailAndPassword(auth, email, password);
+//   }
+//   useEffect(() => {
+//     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+//       setUser(currentUser);
+//     });
+//     return () => {
+//       unsubscribe();
+//     };
+//   }, []);
+//   return (
+//     <userContext.Provider value={{ signUp, user }}>
+//       {children}
+//     </userContext.Provider>
+//   );
+// }
+// export function useUserAuth() {
+//   return useContext(userContext);
+// }
