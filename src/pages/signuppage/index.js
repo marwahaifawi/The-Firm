@@ -22,14 +22,15 @@ export default function SignUp() {
   const passwordConfirmedRef = useRef();
 
   const handleSubmit = async (e) => {
-    if(passwordRef.current.value !== passwordConfirmedRef.current.value){
-      return setError("Passwords do not match")
-    }
     e.preventDefault();
+
+    if (passwordRef.current.value !== passwordConfirmedRef.current.value) {
+      return setError("Passwords do not match");
+    }
     try {
       setError("");
       setLoading(true);
-      await signup( emailRef.current.value , passwordRef.current.value);
+      await signup(emailRef.current.value, passwordRef.current.value);
     } catch {
       setError("Failed to create account");
     }
@@ -112,7 +113,7 @@ export default function SignUp() {
                 name="password"
                 label="Confirm password"
                 type="password"
-                id="password"
+                id="confirmedPassword"
                 ref={passwordConfirmedRef}
                 sx={{
                   borderLeft: "5px solid",
