@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useForm } from "react-hook-form";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
@@ -9,36 +10,16 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import ButtonApp from "../../shared/button";
 import { Divider, Stack } from "@mui/material";
-
 import { useNavigate } from "react-router-dom";
-// import IconButton from "@mui/material/IconButton";
-// import Input from "@mui/material/Input";
-// import FilledInput from "@mui/material/FilledInput";
-// import OutlinedInput from "@mui/material/OutlinedInput";
-// import InputLabel from "@mui/material/InputLabel";
-// import InputAdornment from "@mui/material/InputAdornment";
-// import FormHelperText from "@mui/material/FormHelperText";
-// import FormControl from "@mui/material/FormControl";
-// import Visibility from "@mui/icons-material/Visibility";
-// import VisibilityOff from "@mui/icons-material/VisibilityOff";
+
 const Login = () => {
   const navigate = useNavigate();
-  const [showPassword, setShowPassword] = React.useState(false);
-  const [user, setUser] = useState([
-    {
-      Email: "",
-      Password: "",
-    },
-  ]);
-  const handleSubmit = (event) => {
+  const { register, handleSubmit } = useForm();
 
+  const onSubmit = (data) => {
+    // handle form submission here
   };
 
-  // const handleClickShowPassword = () => setShowPassword((show) => !show);
-
-  // const handleMouseDownPassword = (event) => {
-  //   event.preventDefault();
-  // };
   const handleSignUpClick = () => {
     navigate("/signup");
   };
@@ -49,14 +30,22 @@ const Login = () => {
         <Typography variant="h4" color="primary.main">
           Log In Please
         </Typography>
-        <Box alignItems="center" component="form" noValidate mt={3} mb={2}>
+        <Box
+          alignItems="center"
+          component="form"
+          noValidate
+          onSubmit={handleSubmit(onSubmit)}
+          mt={3}
+          mb={2}
+        >
           <Grid container spacing={2} justifyContent="center">
             <Grid item xs={12}>
               <TextField
+                {...register("email", { required: true })}
                 required
                 fullWidth
                 id="email"
-                label="Enter your email address "
+                label="Enter your email address"
                 name="email"
                 sx={{
                   borderLeft: "5px solid",
@@ -64,16 +53,16 @@ const Login = () => {
                   boxShadow: "0px 2px 3px rgba(0, 0, 0, 0.1)",
                   borderColor: "primary.main",
                 }}
-                onChange={(e) => setUser({ ...user, Email: e.target.value })}
               />
             </Grid>
             <Grid item xs={12}>
               <TextField
+                {...register("password", { required: true })}
                 required
                 fullWidth
                 id="password"
-                type={showPassword ? "text" : "password"}
-                label="Enter your password "
+                type="password"
+                label="Enter your password"
                 name="password"
                 autoComplete="password"
                 sx={{
@@ -82,7 +71,6 @@ const Login = () => {
                   boxShadow: "0px 2px 3px rgba(0, 0, 0, 0.1)",
                   borderColor: "primary.main",
                 }}
-                onChange={(e) => setUser({ ...user, Password: e.target.value })}
               />
 
               <Grid item xs fullWidth>
@@ -103,11 +91,7 @@ const Login = () => {
               </Grid>
             </Grid>
             <Grid item>
-              <ButtonApp
-                onClick={handleSubmit}
-                type="submit"
-                variant="contained"
-              >
+              <ButtonApp type="submit" variant="contained">
                 Log In
               </ButtonApp>
             </Grid>
@@ -117,7 +101,7 @@ const Login = () => {
           <Grid item>
             <Divider variant="middle" />
             <Link color="#A7A7A6" href="#" variant="body2" underline="hover">
-              Don’t have an account ?
+              Don’t have an account?
             </Link>
 
             <Link
@@ -133,4 +117,5 @@ const Login = () => {
     </Container>
   );
 };
+
 export default Login;
