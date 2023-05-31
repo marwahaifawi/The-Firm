@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { useForm } from "react-hook-form";
+import React, { useRef, useState } from "react";
 import TextField from "@mui/material/TextField";
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
@@ -7,15 +6,34 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import ButtonApp from "../../shared/button";
-import { Divider, Stack } from "@mui/material";
+import { Alert, Divider, Stack } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../shared/authcontext";
 
 export default function SignUp() {
   const navigate = useNavigate();
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { signup } = useAuth();
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const onSubmit = (data) => {
-    // handle form submission here
+  const fullNameRef = useRef();
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const passwordConfirmedRef = useRef();
+
+  const handleSubmit = async (e) => {
+    if(passwordRef.current.value !== passwordConfirmedRef.current.value){
+      return setError("Passwords do not match")
+    }
+    e.preventDefault();
+    try {
+      setError("");
+      setLoading(true);
+      await signup( emailRef.current.value , passwordRef.current.value);
+    } catch {
+      setError("Failed to create account");
+    }
+    setLoading(false);
   };
 
   const handleSignInClick = () => {
@@ -28,17 +46,20 @@ export default function SignUp() {
         <Typography variant="h4" color="primary.main">
           Sign Up Now
         </Typography>
+        {error && <Alert severity="error">{error}</Alert>}
         <Box
+          alignItems="center"
           component="form"
           noValidate
-          onSubmit={handleSubmit(onSubmit)}
+          onSubmit={handleSubmit}
           mt={3}
           mb={2}
         >
           <Grid container spacing={2} justifyContent="center">
             <Grid item xs={12}>
               <TextField
-                {...register("fullName", { required: true })}
+                name="fullName"
+                required
                 fullWidth
                 id="fullName"
                 label="Full Name here"
@@ -49,15 +70,17 @@ export default function SignUp() {
                   boxShadow: "0px 5px 15px -3px rgba(60, 60, 59, 0.18)",
                   borderColor: "primary.main",
                 }}
+                ref={fullNameRef}
               />
-              {errors.fullName && <span>This field is required</span>}
             </Grid>
             <Grid item xs={12}>
               <TextField
-                {...register("email", { required: true })}
+                required
                 fullWidth
-                id="email"
-                label="Enter your email address"
+                id="Email"
+                label="Enter your email address "
+                name="Email"
+                ref={emailRef}
                 sx={{
                   borderLeft: "5px solid",
                   borderRadius: "11px",
@@ -65,15 +88,15 @@ export default function SignUp() {
                   borderColor: "primary.main",
                 }}
               />
-              {errors.email && <span>This field is required</span>}
             </Grid>
             <Grid item xs={12}>
               <TextField
-                {...register("password", { required: true })}
+                required
                 fullWidth
                 id="password"
-                label="Enter your password"
-                type="password"
+                label="Enter your password "
+                name="password"
+                ref={passwordRef}
                 sx={{
                   borderLeft: "5px solid",
                   borderRadius: "11px",
@@ -81,15 +104,16 @@ export default function SignUp() {
                   borderColor: "primary.main",
                 }}
               />
-              {errors.password && <span>This field is required</span>}
             </Grid>
             <Grid item xs={12}>
               <TextField
-                {...register("confirmPassword", { required: true })}
+                required
                 fullWidth
-                name="confirmPassword"
+                name="password"
                 label="Confirm password"
                 type="password"
+                id="password"
+                ref={passwordConfirmedRef}
                 sx={{
                   borderLeft: "5px solid",
                   borderRadius: "11px",
@@ -97,10 +121,14 @@ export default function SignUp() {
                   borderColor: "primary.main",
                 }}
               />
-              {errors.confirmPassword && <span>This field is required</span>}
             </Grid>
             <Grid item>
-              <ButtonApp type="submit" variant="contained">
+              <ButtonApp
+                onClick={handleSubmit}
+                type="submit"
+                variant="contained"
+                disabled={loading}
+              >
                 Submit
               </ButtonApp>
             </Grid>
