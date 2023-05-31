@@ -4,26 +4,26 @@
       "id": "0",
       "title": "Mastering Learning Experience",
       "name": "Alex Liones",
-      "avatar": "AlexAvatar",
-      "image": "MasteringLearningBlogImg",
+      "avatar": "img/avatars/alexAvatar.png",
+      "image": "img/blogs/masteringLearningBlogImg.png",
       "date": "28,Aug 2020, 09:48:00",
       "description": "Dive into the world of Learning Management Systems (LMS) and discover how they revolutionize education. Explore the benefits, features, and implementation of LMS ."
     },
     {
       "id": "1",
       "title": "Driving Workplace Efficiency",
-      "avatar": "MohAvatar",
+      "avatar": "img/avatars/mohAvatar.png",
       "name": "Moh Jess",
-      "image": "DrivingWorkplaceBlogImg",
+      "image": "img/blogs/drivingWorkplaceBlogImg.png",
       "date": "28,Aug 2020, 09:48:00",
       "description": "Explore how Learning Management Systems (LMS) extend beyond traditional classrooms and support continuing education and professional development. "
     },
     {
       "id": "2",
       "title": "Maximizing Training ROI",
-      "avatar": "MarwaAvatar",
+      "avatar": "img/avatars/marwaAvatar.png",
       "name": "Marwa Salah",
-      "image": "MaximizingTrainingImg",
+      "image": "img/blogs/maximizingTrainingImg.png",
       "date": "28,Aug 2020, 09:48:00",
       "description": "Learn how Learning Management Systems (LMS) maximize return on investment (ROI) for corporate learning programs."
     }
