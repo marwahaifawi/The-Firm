@@ -8,8 +8,6 @@ import Container from "@mui/material/Container";
 import ButtonApp from "../../shared/button";
 import { Divider, Stack } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../firebase";
 
 export default function SignUp() {
   const navigate = useNavigate();
@@ -23,13 +21,7 @@ export default function SignUp() {
   ]);
 
   const handleSubmit = (event) => {
-    event.preventDefault();
-    createUserWithEmailAndPassword(auth,user.Email,user.Password).then((userCredential)=>{
-    console.log(userCredential);
-    })
-    .catch((error)=>{
-      console.log(error);
-    })
+    
   };
 
   const handleSignInClick = () => {

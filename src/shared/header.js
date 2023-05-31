@@ -16,13 +16,8 @@ import ButtonApp from "./button";
 import NavBar from "../components/navbar";
 import { Stack } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { auth } from "../firebase";
-import { signOut } from "firebase/auth";
-
-const UserContext = createContext();
 
 const HeaderApp = (props) => {
-  const userAuthentication = useContext(UserContext);
   const navigate = useNavigate();
 
   const { window } = props;
@@ -38,10 +33,6 @@ const HeaderApp = (props) => {
     setMobileOpen((prevState) => !prevState);
   };
 
-  const handleSignOutClick = () => {
-    console.log(userAuthentication)
-    navigate("/login");
-  };
   const handleSignUpClick = () => {
     navigate("/signup");
   };
@@ -99,15 +90,11 @@ const HeaderApp = (props) => {
               </NavBar>
             ))}
 
-            {userAuthentication ? (
-              <ButtonApp onClick={handleSignOutClick} variant="contained">
-                Sign Out
-              </ButtonApp>
-            ) : (
+ 
               <ButtonApp onClick={handleSignUpClick} variant="contained">
                 Sign Up
               </ButtonApp>
-            )}
+          
           </Stack>
         </Toolbar>
       </AppBar>

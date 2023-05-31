@@ -11,8 +11,6 @@ import ButtonApp from "../../shared/button";
 import { Divider, Stack } from "@mui/material";
 
 import { useNavigate } from "react-router-dom";
-import { auth } from "../../firebase";
-import { signInWithEmailAndPassword } from "firebase/auth";
 // import IconButton from "@mui/material/IconButton";
 // import Input from "@mui/material/Input";
 // import FilledInput from "@mui/material/FilledInput";
@@ -33,13 +31,7 @@ const Login = () => {
     },
   ]);
   const handleSubmit = (event) => {
-    signInWithEmailAndPassword(auth, user.Email, user.Password)
-      .then((userCredential) => {
-        console.log(userCredential);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+
   };
 
   // const handleClickShowPassword = () => setShowPassword((show) => !show);
