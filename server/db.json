@@ -1,0 +1,51 @@
+{
+  "blogs": [
+    {
+      "id": "0",
+      "title": "Mastering Learning Experience",
+      "name": "Alex Liones",
+      "avatar": "img/avatars/alexAvatar.png",
+      "image": "img/blogs/masteringLearningBlogImg.png",
+      "date": "28,Aug 2020, 09:48:00",
+      "description": "Dive into the world of Learning Management Systems (LMS) and discover how they revolutionize education. Explore the benefits, features, and implementation of LMS ."
+    },
+    {
+      "id": "1",
+      "title": "Driving Workplace Efficiency",
+      "avatar": "img/avatars/mohAvatar.png",
+      "name": "Moh Jess",
+      "image": "img/blogs/drivingWorkplaceBlogImg.png",
+      "date": "28,Aug 2020, 09:48:00",
+      "description": "Explore how Learning Management Systems (LMS) extend beyond traditional classrooms and support continuing education and professional development. "
+    },
+    {
+      "id": "2",
+      "title": "Maximizing Training ROI",
+      "avatar": "img/avatars/marwaAvatar.png",
+      "name": "Marwa Salah",
+      "image": "img/blogs/maximizingTrainingImg.png",
+      "date": "28,Aug 2020, 09:48:00",
+      "description": "Learn how Learning Management Systems (LMS) maximize return on investment (ROI) for corporate learning programs."
+    }
+  ],
+  "appointments": [
+    {
+      "id": "0",
+      "solution": "SEO",
+      "username": "Alex Liones",
+      "date": "2023-06-23",
+      "time": "11:57",
+      "notes": "saadaddadad",
+      "mentor": "Alex Liones"
+    },
+    {
+      "id": "1",
+      "solution": "SEO",
+      "username": "Alex Liones",
+      "date": "2023-06-23",
+      "time": "11:57",
+      "notes": "saadaddadad",
+      "mentor": "Alex Liones"
+    }
+  ]
+}

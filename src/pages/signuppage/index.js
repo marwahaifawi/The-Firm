@@ -5,9 +5,15 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import Button from "@mui/material/Button";
+import ButtonApp from "../../shared/button";
 import { Alert, Divider, Stack } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
+import {
+  auth,
+  registerWithEmailAndPassword,
+  signInWithGoogle,
+} from "../../firebase";
 
 export default function SignUp() {
   const navigate = useNavigate();
@@ -15,19 +21,18 @@ export default function SignUp() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmedRef = useRef();
-
-  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmedPassword, setConfirmedPassword] = useState("");
-  const [passwordsMatch, setPasswordsMatch] = useState(true);
 
+  const [name, setName] = useState("");
+  const [passwordsMatch, setPasswordsMatch] = useState(true); // State to track if passwords match
+
+  const [user, loading, error] = useAuthState(auth);
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("user"));
-    if (user) {
-      navigate("/");
-    }
-  }, []);
+    if (loading) return;
+    if (user) navigate("/");
+  }, [user, loading]);
 
   const handleSignInClick = () => {
     navigate("/login");
@@ -42,7 +47,7 @@ export default function SignUp() {
       setPasswordsMatch(false);
       return;
     }
-    localStorage.setItem("user", JSON.stringify({ name, email }));
+    registerWithEmailAndPassword(name, email, password);
     navigate("/");
   };
 
@@ -52,7 +57,7 @@ export default function SignUp() {
         <Typography variant="h4" color="primary.main">
           Sign Up Now
         </Typography>
-        <Box component="form" noValidate mt={3} mb={2}>
+        <Box alignItems="center" component="form" noValidate mt={3} mb={2}>
           <Grid container spacing={2} justifyContent="center">
             <Grid item xs={12}>
               <TextField
@@ -62,16 +67,14 @@ export default function SignUp() {
                 id="fullName"
                 label="Full Name here"
                 autoFocus
-                type="name"
-                inputRef={fullNameRef}
-                value={name}
-                onChange={(e) => setName(e.target.value)}
                 sx={{
                   borderLeft: "5px solid",
                   borderRadius: "11px",
                   boxShadow: "0px 5px 15px -3px rgba(60, 60, 59, 0.18)",
                   borderColor: "primary.main",
                 }}
+                ref={fullNameRef}
+                onChange={(e) => setName(e.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
@@ -81,9 +84,7 @@ export default function SignUp() {
                 id="Email"
                 label="Enter your email address"
                 name="Email"
-                inputRef={emailRef}
-                value={email}
-                type="email"
+                ref={emailRef}
                 onChange={(e) => setEmail(e.target.value)}
                 sx={{
                   borderLeft: "5px solid",
@@ -101,8 +102,7 @@ export default function SignUp() {
                 label="Enter your password"
                 name="password"
                 type="password"
-                inputRef={passwordRef}
-                value={password}
+                ref={passwordRef}
                 onChange={(e) => setPassword(e.target.value)}
                 sx={{
                   borderLeft: "5px solid",
@@ -120,10 +120,9 @@ export default function SignUp() {
                 label="Confirm password"
                 type="password"
                 id="confirmedPassword"
-                inputRef={passwordConfirmedRef}
-                value={confirmedPassword}
+                ref={passwordConfirmedRef}
                 onChange={(e) => setConfirmedPassword(e.target.value)}
-                error={!passwordsMatch}
+                error={!passwordsMatch} // Show error state if passwords do not match
                 helperText={!passwordsMatch && "Passwords do not match"}
                 sx={{
                   borderLeft: "5px solid",
@@ -134,13 +133,14 @@ export default function SignUp() {
               />
             </Grid>
             <Grid item>
-              <Button
+              <ButtonApp
                 onClick={register}
                 type="submit"
                 variant="contained"
+                disabled={loading}
               >
                 Submit
-              </Button>
+              </ButtonApp>
             </Grid>
           </Grid>
         </Box>

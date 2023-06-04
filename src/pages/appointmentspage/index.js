@@ -1,18 +1,21 @@
 import { Container, Stack, Typography } from "@mui/material";
-import React from "react";
+import { useEffect, useState } from "react";
 import AppointmentsTable from "../../components/appointmentstable";
+import api from "../../api/appointments";
 
 const AppointmentsPage = () => {
-  const appointments = [
-    {
-      date: "2023-05-23",
-      time: "10:00 AM",
-      name: "John Doe",
-      solution: "SEO",
-      additionalInfo: "Lorem ipsum dolor sit amet",
-    },
-    // Add more appointment objects as needed
-  ];
+  const [appointments, setAppointments] = useState([]);
+  const getAppointments = async () => {
+    const response = await api.get("/appointments");
+    return response.data;
+  };
+  useEffect(() => {
+    const getAllAppointments = async () => {
+      const allAppointments = await getAppointments();
+      if (allAppointments) setAppointments(allAppointments);
+    };
+    getAllAppointments();
+  }, []);
   return (
     <Stack>
       <Typography
