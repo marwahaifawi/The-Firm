@@ -1,4 +1,4 @@
-import React, { useRef, useState , useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import TextField from "@mui/material/TextField";
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
@@ -14,6 +14,7 @@ import {
   registerWithEmailAndPassword,
   signInWithGoogle,
 } from "../../firebase";
+
 export default function SignUp() {
   const navigate = useNavigate();
   const fullNameRef = useRef();
@@ -25,18 +26,29 @@ export default function SignUp() {
   const [confirmedPassword, setConfirmedPassword] = useState("");
 
   const [name, setName] = useState("");
+  const [passwordsMatch, setPasswordsMatch] = useState(true); // State to track if passwords match
+
   const [user, loading, error] = useAuthState(auth);
   useEffect(() => {
     if (loading) return;
-    if (user) navigate("/homepage");
+    if (user) navigate("/");
   }, [user, loading]);
+
   const handleSignInClick = () => {
     navigate("/login");
   };
+
   const register = () => {
-    if (!name) alert("Please enter name");
+    if (!name) {
+      alert("Please enter a name");
+      return;
+    }
+    if (password !== confirmedPassword) {
+      setPasswordsMatch(false);
+      return;
+    }
     registerWithEmailAndPassword(name, email, password);
-    navigate("/")
+    navigate("/");
   };
 
   return (
@@ -45,13 +57,7 @@ export default function SignUp() {
         <Typography variant="h4" color="primary.main">
           Sign Up Now
         </Typography>
-        <Box
-          alignItems="center"
-          component="form"
-          noValidate
-          mt={3}
-          mb={2}
-        >
+        <Box alignItems="center" component="form" noValidate mt={3} mb={2}>
           <Grid container spacing={2} justifyContent="center">
             <Grid item xs={12}>
               <TextField
@@ -61,6 +67,7 @@ export default function SignUp() {
                 id="fullName"
                 label="Full Name here"
                 autoFocus
+                type="name"
                 sx={{
                   borderLeft: "5px solid",
                   borderRadius: "11px",
@@ -76,11 +83,11 @@ export default function SignUp() {
                 required
                 fullWidth
                 id="Email"
-                label="Enter your email address "
+                label="Enter your email address"
                 name="Email"
+                type="email"
                 ref={emailRef}
                 onChange={(e) => setEmail(e.target.value)}
-
                 sx={{
                   borderLeft: "5px solid",
                   borderRadius: "11px",
@@ -94,11 +101,11 @@ export default function SignUp() {
                 required
                 fullWidth
                 id="password"
-                label="Enter your password "
+                label="Enter your password"
                 name="password"
+                type="password"
                 ref={passwordRef}
                 onChange={(e) => setPassword(e.target.value)}
-
                 sx={{
                   borderLeft: "5px solid",
                   borderRadius: "11px",
@@ -117,7 +124,8 @@ export default function SignUp() {
                 id="confirmedPassword"
                 ref={passwordConfirmedRef}
                 onChange={(e) => setConfirmedPassword(e.target.value)}
-
+                error={!passwordsMatch} // Show error state if passwords do not match
+                helperText={!passwordsMatch && "Passwords do not match"}
                 sx={{
                   borderLeft: "5px solid",
                   borderRadius: "11px",
@@ -128,7 +136,7 @@ export default function SignUp() {
             </Grid>
             <Grid item>
               <ButtonApp
-              onClick={register}
+                onClick={register}
                 type="submit"
                 variant="contained"
                 disabled={loading}
