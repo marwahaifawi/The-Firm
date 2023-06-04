@@ -115,7 +115,7 @@ const HeaderApp = (props) => {
 
             {user ? (
               <>
-                <Typography>Hello {name}</Typography>
+                {/* <Typography>Hello {name}</Typography> */}
                 <ButtonApp variant="contained" onClick={logoutUser}>
                   Logout
                 </ButtonApp>
