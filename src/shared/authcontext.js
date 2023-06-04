@@ -3,7 +3,8 @@ import {
   onAuthStateChanged,
 } from "firebase/auth";
 import { createContext, useContext, useEffect, useState } from "react";
-import auth from "../firebase";
+import { auth, signInWithEmailAndPassword, signInWithGoogle } from "../firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
