@@ -2,6 +2,7 @@ import React from "react";
 import { Stack, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import ButtonApp from "../../shared/button";
+
 const useStyles = makeStyles((theme) => ({
   img: {
     [theme.breakpoints.up("xs")]: {
@@ -32,14 +33,14 @@ const CaseDetailsHeroSection = ({ caseName, description, image }) => {
     >
       <Stack spacing={2} width={"50%"} justifyContent="center">
         <Typography textAlign={{ xs: "center", lg: "left " }} variant="h4">
-        {caseName}
+          {caseName}
         </Typography>
         <Typography
           textAlign={{ xs: "center", lg: "left " }}
           variant="body1"
           lineHeight={2}
         >
-        {description}
+          {description}
         </Typography>
         <Stack direction={{ lg: "row", md: "row", sm: "column" }} spacing={2}>
           <ButtonApp variant={"contained"}> Digital Partner</ButtonApp>
