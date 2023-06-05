@@ -1,12 +1,10 @@
 import { Container, Stack, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import AppointmentsTable from "../../components/appointmentstable";
-import api from "../../api/appointments";
-
+import api from "../../api/api";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth, db, logout } from "../../firebase";
+import { auth, db } from "../../firebase";
 import { query, collection, getDocs, where } from "firebase/firestore";
-
 import { useNavigate } from "react-router-dom";
 
 const AppointmentsPage = () => {
@@ -15,16 +13,15 @@ const AppointmentsPage = () => {
     const response = await api.get("/appointments");
     return response.data;
   };
-  const [user, loading, error] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
   const [name, setName] = useState("");
-  const navigate = useNavigate();
+  const navigate        = useNavigate();
 
   const fetchUserName = async () => {
     try {
-      const q = query(collection(db, "users"), where("uid", "==", user?.uid));
-      const doc = await getDocs(q);
+      const q    = query(collection(db, "users"), where("uid", "==", user?.uid));
+      const doc  = await getDocs(q);
       const data = doc.docs[0].data();
-      console.log(data);
       setName(data.name);
     } catch (err) {
       console.error(err);
@@ -34,7 +31,6 @@ const AppointmentsPage = () => {
 
   useEffect(() => {
     if (loading) return;
-
     const getAllAppointments = async () => {
       const allAppointments = await getAppointments();
       if (allAppointments) setAppointments(allAppointments);
