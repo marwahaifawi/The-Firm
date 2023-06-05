@@ -11,24 +11,22 @@ import Container from "@mui/material/Container";
 import ButtonApp from "../../shared/button";
 import { Divider, Stack } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { createContext, useContext, useEffect } from "react";
+import { useEffect } from "react";
 import { logInWithEmailAndPassword } from "../../firebase";
-import { auth, db, logout } from "../../firebase";
-import { useAuth } from "../../shared/authcontext";
+import { auth } from "../../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 const Login = () => {
   const navigate = useNavigate();
-  const { register, handleSubmit } = useForm();
+  const { register } = useForm();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { currentUser, userName } = useAuth();
-  const [user, loading, error] = useAuthState(auth);
+  const [user] = useAuthState(auth);
   const handleSignUpClick = () => {
     navigate("/signup");
   };
   useEffect(() => {
-    if (currentUser) navigate("/");
-  }, [currentUser]);
+    if (user) navigate("/");
+  }, [user]);
   return (
     <Container maxWidth="xs">
       <Stack alignItems="center" mt={30} mb={30} direction="column">
