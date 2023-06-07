@@ -1,4 +1,4 @@
-import React, { useState  , useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { Stack, Grid, Container } from "@mui/material";
 import ButtonApp from "../../shared/button";
 import TextField from "@material-ui/core/TextField";
@@ -11,6 +11,7 @@ const CasesFilter = () => {
   const [clicked, setClicked] = useState(0);
   const filters = ["Show All", "Coaching", "Digital Partners", "SEO"];
   const [cases, setCases] = useState([]);
+  const [filteredCases, setFilteredCases] = useState([]); // State for filtered cases
   const getCases = async () => {
     const response = await api.get("/cases");
     return response.data;
@@ -18,10 +19,27 @@ const CasesFilter = () => {
   useEffect(() => {
     const getAllCases = async () => {
       const allCases = await getCases();
-      if (allCases) setCases(allCases);
+      if (allCases) {
+        setCases(allCases);
+        setFilteredCases(allCases); // Set initial filtered cases to all cases
+      }
     };
     getAllCases();
   }, []);
+
+  useEffect(() => {
+    if (clicked === 0) {
+      // Show All filter selected, set filtered cases to all cases
+      setFilteredCases(cases);
+    } else {
+      // Filter cases based on the selected solution
+      const filtered = cases.filter(
+        (item) => item.solution === filters[clicked]
+      );
+      setFilteredCases(filtered);
+    }
+  }, [clicked, cases, filters]);
+
   return (
     <Stack alignItems="center" p={5}>
       <Stack
@@ -62,7 +80,7 @@ const CasesFilter = () => {
           spacing={5}
           columns={{ xs: 4, sm: 8, md: 12 }}
         >
-          {cases.map((item) => (
+          {filteredCases.map((item) => (
             <Grid item xs={4} key={item.id}>
               <CaseCard
                 image={item.image}
