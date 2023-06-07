@@ -21,7 +21,6 @@ const CaseDetailsPage = () => {
 
   const { caseID } = useParams();
   const singleCase = cases.find((caseObj) => caseObj.id === parseInt(caseID));
-console.log(singleCase)
   if (!singleCase) {
     // Case not found, handle this case (e.g., show a message or redirect)
     return (

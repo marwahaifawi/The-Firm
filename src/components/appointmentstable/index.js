@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Table,
   TableBody,
@@ -12,17 +12,35 @@ import {
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import axios from "axios";
+import api from "../../api/api";
 
-const AppointmentsTable = ({ appointments }) => {
+const AppointmentsTable = () => {
+  const [appointments, setAppointments] = useState([]);
+
+  const getAppointments = async () => {
+    try {
+      const response = await api.get("/appointments");
+      setAppointments(response.data);
+    } catch (error) {
+      console.error("Error fetching appointments:", error);
+    }
+  };
+
+  useEffect(() => {
+    getAppointments();
+  }, []);
+
   const handleDelete = (id) => {
     const apiUrl = `http://localhost:3006/appointments/${id}`;
-    axios.delete(apiUrl).then((response) => {
-      // Handle the successful deletion, such as updating the appointments list
-      console.log("Appointment deleted successfully");
-    }).catch((error) => {
-      // Handle the error, such as displaying an error message
-      console.error("Error deleting appointment:", error);
-    });
+    axios
+      .delete(apiUrl)
+      .then((response) => {
+        // Handle the successful deletion, such as updating the appointments list
+        getAppointments();
+      })
+      .catch((error) => {
+        console.error("Error deleting appointment:", error);
+      });
   };
 
   return (
@@ -42,7 +60,7 @@ const AppointmentsTable = ({ appointments }) => {
         <TableBody>
           {appointments.map((appointment, index) => (
             <TableRow key={index}>
-              <TableCell>{appointment.solution}</TableCell>
+              <TableCell>{appointment.solutionTitle}</TableCell>
               <TableCell>{appointment.instructorName}</TableCell>
               <TableCell>{appointment.date}</TableCell>
               <TableCell>{appointment.time}</TableCell>
@@ -53,7 +71,7 @@ const AppointmentsTable = ({ appointments }) => {
                   <EditIcon />
                 </IconButton>
                 <IconButton
-                  color={"error"}
+                  color="error"
                   onClick={() => handleDelete(appointment.id)}
                 >
                   <DeleteIcon />

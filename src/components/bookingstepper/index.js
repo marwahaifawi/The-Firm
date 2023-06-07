@@ -15,8 +15,6 @@ import InputLabel from "@mui/material/InputLabel";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import axios from "axios";
-import { Alert } from "@mui/material";
-
 const steps = [
   {
     label: "Additional Personal Info",
@@ -25,9 +23,10 @@ const steps = [
       { name: "role", label: "Role", type: "text" },
     ],
     menuItems: [
-      { value: "Role 1", label: "Role 1" },
-      { value: "Role 2", label: "Role 2" },
-      { value: "Role 3", label: "Role 3" },
+      { value: "Employee", label: "Employee" },
+      { value: "Manager", label: "Manager" },
+      { value: "Student", label: "Student" },
+      { value: "Entrepreneur", label: "Entrepreneur" },
     ],
   },
   {
@@ -38,9 +37,9 @@ const steps = [
       { name: "instructorName", label: "Instructor Name", type: "text" },
     ],
     menuItems: [
-      { value: "Instructor 1", label: "Instructor 1" },
-      { value: "Instructor 2", label: "Instructor 2" },
-      { value: "Instructor 3", label: "Instructor 3" },
+      { value: "Marah Najjar", label: "Marah Najjar" },
+      { value: "Marwa Salah", label: "Marwa Salah" },
+      { value: "Misk Sawalha", label: "Misk Sawalha" },
     ],
   },
   {
@@ -51,7 +50,8 @@ const steps = [
   },
 ];
 
-const BookingStepper = ({ onClose }) => {
+const BookingStepper = ({ onClose, solutionTitle }) => {
+  console.log(solutionTitle);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [activeStep, setActiveStep] = useState(0);
@@ -62,7 +62,7 @@ const BookingStepper = ({ onClose }) => {
     const currentStepFields = steps[activeStep].fields;
     const errors = {};
     currentStepFields.forEach((field) => {
-      if (!appointmentData[field.name]) {
+      if (field.name !== "additionalInfo" && !appointmentData[field.name]) {
         errors[field.name] = "This field is required";
       }
     });
@@ -79,7 +79,6 @@ const BookingStepper = ({ onClose }) => {
           })
           .catch((error) => {
             // Error handling (e.g., show an error message)
-            console.error("Error creating appointment:", error);
           });
       } else {
         // Proceed to the next step
@@ -96,6 +95,7 @@ const BookingStepper = ({ onClose }) => {
     const { name, value } = e.target;
     setAppointmentData((prevData) => ({
       ...prevData,
+      solutionTitle: solutionTitle,
       [name]: value,
     }));
   };
@@ -105,6 +105,13 @@ const BookingStepper = ({ onClose }) => {
     const headers = {
       "Content-Type": "application/json",
     };
+
+    // Add the solutionTitle to the appointmentData object
+    appointmentData = {
+      ...appointmentData,
+      solutionTitle: solutionTitle,
+    };
+
     return axios.post(apiUrl, appointmentData, { headers });
   };
 
@@ -143,7 +150,6 @@ const BookingStepper = ({ onClose }) => {
                       onChange={handleInputChange}
                       fullWidth
                       margin="normal"
-                      required
                       error={!!fieldErrors[field.name]}
                       helperText={fieldErrors[field.name]}
                     />
