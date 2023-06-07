@@ -22,7 +22,7 @@ import { query, collection, getDocs, where } from "firebase/firestore";
 
 const HeaderApp = (props) => {
   const navigate = useNavigate();
-  const {window} = props;
+  const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
   const drawerWidth = 240;
   const navItems = [
@@ -31,8 +31,7 @@ const HeaderApp = (props) => {
     { text: "Cases", link: "/casesPage" },
     { text: "Appointments", link: "/Appointments" },
   ];
-
-  const [user, loading, error] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
   const [name, setName] = useState("");
   const fetchUserName = async () => {
     try {
@@ -44,7 +43,7 @@ const HeaderApp = (props) => {
       alert("An error occurred while fetching user data");
     }
   };
-  
+
   const logoutUser = () => {
     logout();
     navigate("/login");
@@ -66,19 +65,31 @@ const HeaderApp = (props) => {
     <Box onClick={handleDrawerToggle}>
       <List>
         {navItems.map((item, index) => (
-          <ListItem key={index} disablePadding>
+          <ListItem key={index}>
             <ListItemButton component={Link} to={item.link}>
               <ListItemText primary={item.text} />
             </ListItemButton>
           </ListItem>
         ))}
+        {user ? (
+          <ListItem>
+            <ButtonApp variant="contained" onClick={logoutUser} fullWidth>
+              Logout
+            </ButtonApp>
+          </ListItem>
+        ) : (
+          <ListItem>
+            <ButtonApp onClick={handleSignUpClick} variant="contained">
+              Sign Up
+            </ButtonApp>
+          </ListItem>
+        )}
       </List>
     </Box>
   );
 
   const container =
     window !== undefined ? () => window().document.body : undefined;
-
   return (
     <Stack>
       <AppBar component="nav" color="inherit" sx={{ boxShadow: "none" }}>
@@ -107,7 +118,6 @@ const HeaderApp = (props) => {
             {navItems.map((item, index) => (
               <NavBar
                 color="#1E1E1E"
-                underline="hover"
                 key={index}
                 linkTo={item.link}
                 variant="h6"
@@ -118,7 +128,6 @@ const HeaderApp = (props) => {
 
             {user ? (
               <>
-                {/* <Typography>Hello {name}</Typography> */}
                 <ButtonApp variant="contained" onClick={logoutUser}>
                   Logout
                 </ButtonApp>

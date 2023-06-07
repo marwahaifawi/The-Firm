@@ -12,9 +12,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import {
   auth,
   registerWithEmailAndPassword,
-  signInWithGoogle,
 } from "../../firebase";
-
 export default function SignUp() {
   const navigate = useNavigate();
   const fullNameRef = useRef();
@@ -24,7 +22,6 @@ export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmedPassword, setConfirmedPassword] = useState("");
-
   const [name, setName] = useState("");
   const [passwordsMatch, setPasswordsMatch] = useState(true); // State to track if passwords match
 
