@@ -6,6 +6,7 @@
       "name": "Alex Liones",
       "avatar": "img/avatars/alexAvatar.png",
       "image": "img/blogs/masteringLearningBlogImg.png",
+      "link":"https://hbr.org/2021/11/the-best-way-to-master-a-new-skill-try-this-creative-approach",
       "date": "28,Aug 2020, 09:48:00",
       "description": "Dive into the world of Learning Management Systems (LMS) and discover how they revolutionize education. Explore the benefits, features, and implementation of LMS ."
     },
@@ -15,6 +16,7 @@
       "avatar": "img/avatars/mohAvatar.png",
       "name": "Moh Jess",
       "image": "img/blogs/drivingWorkplaceBlogImg.png",
+      "link":"https://www.tonyrobbins.com/business/improve-work-efficiency/",
       "date": "28,Aug 2020, 09:48:00",
       "description": "Explore how Learning Management Systems (LMS) extend beyond traditional classrooms and support continuing education and professional development. "
     },
@@ -25,6 +27,7 @@
       "name": "Marwa Salah",
       "image": "img/blogs/maximizingTrainingImg.png",
       "date": "28,Aug 2020, 09:48:00",
+      "link":"https://www.bing.com/search?q=Maximizing+Training+ROI&cvid=bbb6fef5080142dca48990aa8918819a&aqs=edge..69i57j69i11004.679j0j4&FORM=ANAB01&PC=U531",
       "description": "Learn how Learning Management Systems (LMS) maximize return on investment (ROI) for corporate learning programs."
     }
   ],

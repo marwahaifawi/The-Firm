@@ -41,6 +41,7 @@ const OurBlogs = () => {
               description={item.description}
               date={item.date}
               title={item.title}
+              link={item.link}
             />
           </Grid>
         ))}

@@ -6,18 +6,22 @@ import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import Avatar from "@mui/material/Avatar";
 import CardHeader from "@mui/material/CardHeader";
-
-const BlogCard = ({ image, name, description, avatar, date, title }) => {
+const BlogCard = ({ image, name, description, avatar, date, title, link }) => {
+  const handleClick = () => {
+    window.open(link, "_blank");
+  };
   return (
     <Card
       className="clickable"
+      onClick={handleClick}
       sx={{
         borderRadius: 4,
         border: "1px solid rgba(15, 179, 175, 0.4)",
         boxShadow: "0px 0px 13px rgba(0, 0, 0, 0.09)",
-        display: 'flex',
-        flexDirection: 'column',
-        height: '100%',
+        display: "flex",
+        flexDirection: "column",
+        height: "100%",
+        cursor: "pointer",
       }}
     >
       <CardMedia sx={{ height: 300, borderRadius: 1 }} image={image} />
@@ -25,7 +29,12 @@ const BlogCard = ({ image, name, description, avatar, date, title }) => {
         <Typography gutterBottom variant="h5">
           {title}
         </Typography>
-        <Typography gutterBottom variant="body1" lineHeight={2} color="text.secondary">
+        <Typography
+          gutterBottom
+          variant="body1"
+          lineHeight={2}
+          color="text.secondary"
+        >
           {description}
         </Typography>
         <Divider variant="middle" />
@@ -34,11 +43,11 @@ const BlogCard = ({ image, name, description, avatar, date, title }) => {
           title={name}
           subheader={date}
           sx={{
-            '@media (max-width: 800px)': {
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              textAlign: 'center',
+            "@media (max-width: 800px)": {
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              textAlign: "center",
             },
           }}
         ></CardHeader>
@@ -46,5 +55,4 @@ const BlogCard = ({ image, name, description, avatar, date, title }) => {
     </Card>
   );
 };
-
 export default BlogCard;
