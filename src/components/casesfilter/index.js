@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { Stack, Grid, Container } from "@mui/material";
 import ButtonApp from "../../shared/button";
 import TextField from "@material-ui/core/TextField";
@@ -9,7 +9,10 @@ import api from "../../api/api";
 
 const CasesFilter = () => {
   const [clicked, setClicked] = useState(0);
-  const filters = ["Show All", "Coaching", "Digital Partners", "SEO"];
+  const filters = useMemo(
+    () => ["Show All", "Coaching", "Digital Partners", "SEO"],
+    []
+  );
   const [cases, setCases] = useState([]);
   const [filteredCases, setFilteredCases] = useState([]); // State for filtered cases
   const [searchQuery, setSearchQuery] = useState(""); // State for search query
@@ -35,12 +38,10 @@ const CasesFilter = () => {
       setFilteredCases(cases);
     } else {
       // Filter cases based on the selected solution
-      const filtered = cases.filter(
-        (item) => item.solution === filters[clicked]
-      );
+      const filtered = cases.filter((item) => item.solution === filters[clicked]);
       setFilteredCases(filtered);
     }
-  }, [clicked, cases]);
+  }, [clicked, cases, filters]);
 
   useEffect(() => {
     // Filter cases based on search query
