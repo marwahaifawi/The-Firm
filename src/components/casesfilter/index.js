@@ -12,10 +12,12 @@ const CasesFilter = () => {
   const filters = ["Show All", "Coaching", "Digital Partners", "SEO"];
   const [cases, setCases] = useState([]);
   const [filteredCases, setFilteredCases] = useState([]); // State for filtered cases
+  const [searchQuery, setSearchQuery] = useState(""); // State for search query
   const getCases = async () => {
     const response = await api.get("/cases");
     return response.data;
   };
+
   useEffect(() => {
     const getAllCases = async () => {
       const allCases = await getCases();
@@ -38,7 +40,19 @@ const CasesFilter = () => {
       );
       setFilteredCases(filtered);
     }
-  }, [clicked, cases, filters]);
+  }, [clicked, cases]);
+
+  useEffect(() => {
+    // Filter cases based on search query
+    const filtered = cases.filter((item) =>
+      item.title.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    setFilteredCases(filtered);
+  }, [searchQuery, cases]);
+
+  const handleSearchChange = (event) => {
+    setSearchQuery(event.target.value);
+  };
 
   return (
     <Stack alignItems="center" p={5}>
@@ -57,6 +71,8 @@ const CasesFilter = () => {
         ))}
         <TextField
           label="Search"
+          value={searchQuery}
+          onChange={handleSearchChange}
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
