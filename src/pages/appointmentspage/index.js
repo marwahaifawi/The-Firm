@@ -15,12 +15,12 @@ const AppointmentsPage = () => {
   };
   const [user, loading] = useAuthState(auth);
   const [name, setName] = useState("");
-  const navigate        = useNavigate();
+  const navigate = useNavigate();
 
   const fetchUserName = async () => {
     try {
-      const q    = query(collection(db, "users"), where("uid", "==", user?.uid));
-      const doc  = await getDocs(q);
+      const q = query(collection(db, "users"), where("uid", "==", user?.uid));
+      const doc = await getDocs(q);
       const data = doc.docs[0].data();
       setName(data.name);
     } catch (err) {
@@ -35,16 +35,14 @@ const AppointmentsPage = () => {
       const allAppointments = await getAppointments();
       if (allAppointments) setAppointments(allAppointments);
     };
-
     if (user) {
       // User is authenticated
       fetchUserName();
       getAllAppointments();
     } else {
-      // User is not authenticated
-      navigate("/login"); // Redirect to login page or handle as per your requirements
+        navigate("/login"); 
     }
-  }, [user, loading, navigate]);
+  }, [user, loading, navigate ,appointments]);
 
   return (
     <Stack>
