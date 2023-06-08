@@ -24,6 +24,9 @@ const Login = () => {
   const handleSignUpClick = () => {
     navigate("/signup");
   };
+  const handleResetClick = () => {
+    navigate("/resetpassword");
+  };
   useEffect(() => {
     if (user) navigate("/");
   }, [user]);
@@ -82,7 +85,11 @@ const Login = () => {
                     control={<Checkbox value="remember" color="primary" />}
                     label="Remember me"
                   />
-                  <Link href="#" variant="body2">
+                  <Link
+                    className="clickable"
+                    onClick={handleResetClick}
+                    variant="body2"
+                  >
                     Forgot password?
                   </Link>
                 </Stack>
