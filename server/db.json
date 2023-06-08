@@ -61,6 +61,69 @@
       "instructorName": "Marwa Salah",
       "additionalInfo": "ASsS",
       "id": 5
+    },
+    {
+      "solutionTitle": "Digital Partner",
+      "phone": "0598738339",
+      "role": "Manager",
+      "date": "2023-06-09",
+      "time": "01:28",
+      "instructorName": "Marwa Salah",
+      "id": 6
+    },
+    {
+      "solutionTitle": "Digital Partner",
+      "role": "Manager",
+      "phone": "0598738339",
+      "date": "2023-06-07",
+      "time": "11:31",
+      "instructorName": "Misk Sawalha",
+      "id": 7
+    },
+    {
+      "solutionTitle": "Digital Partner",
+      "phone": "0598738339",
+      "role": "Employee",
+      "date": "2023-06-15",
+      "time": "23:31",
+      "instructorName": "Marwa Salah",
+      "id": 8
+    },
+    {
+      "solutionTitle": "Digital Partner",
+      "phone": "0598738339",
+      "role": "Employee",
+      "date": "2023-06-15",
+      "time": "23:31",
+      "instructorName": "Marwa Salah",
+      "id": 9
+    },
+    {
+      "solutionTitle": "Digital Partner",
+      "phone": "0598738339",
+      "role": "Employee",
+      "date": "2023-06-15",
+      "time": "23:31",
+      "instructorName": "Marwa Salah",
+      "id": 10
+    },
+    {
+      "solutionTitle": "Digital Partner",
+      "phone": "0598738339",
+      "role": "Student",
+      "date": "2023-06-06",
+      "time": "11:36",
+      "instructorName": "Misk Sawalha",
+      "id": 11
+    },
+    {
+      "solutionTitle": "Digital Partner",
+      "phone": "0598738339",
+      "role": "Manager",
+      "date": "2023-06-08",
+      "time": "12:29",
+      "instructorName": "Marwa Salah",
+      "id": 12
     }
   ],
   "testimonials": [

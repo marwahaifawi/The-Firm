@@ -16,21 +16,20 @@ const style = {
   boxShadow: 24,
 };
 
-const BookingModal = ({ solutionTitle }) => {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+const BookingModal = ({ solutionTitle , setOpen }) => {
+  const [opens, setOpens] = React.useState(false);
+  const handleOpen = () => setOpens(true);
+  const handleClose = () => setOpens(false);
 
   return (
     <div>
       <ButtonApp onClick={handleOpen} variant={"contained"}>
         Book Now
       </ButtonApp>
-
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
-        open={open}
+        open={opens}
         onClose={handleClose}
         closeAfterTransition
         slots={{ backdrop: Backdrop }}
@@ -40,7 +39,7 @@ const BookingModal = ({ solutionTitle }) => {
           },
         }}
       >
-        <Fade in={open}>
+        <Fade in={opens}>
           <Stack p={4} sx={style} width={"50%"} height={"75%"}>
             <Typography
               color={"primary"}
@@ -53,6 +52,7 @@ const BookingModal = ({ solutionTitle }) => {
             <BookingStepper
               onClose={handleClose}
               solutionTitle={solutionTitle}
+              setOpen={setOpen}
             />
           </Stack>
         </Fade>

@@ -13,6 +13,10 @@ import TextField from "@mui/material/TextField";
 import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import Select from "@mui/material/Select";
+import Alert from "@mui/material/Alert";
+import IconButton from "@mui/material/IconButton";
+import Collapse from "@mui/material/Collapse";
+import CloseIcon from "@mui/icons-material/Close";
 import MenuItem from "@mui/material/MenuItem";
 import axios from "axios";
 const steps = [
@@ -50,8 +54,7 @@ const steps = [
   },
 ];
 
-const BookingStepper = ({ onClose, solutionTitle }) => {
-  console.log(solutionTitle);
+const BookingStepper = ({ onClose, solutionTitle, setOpen }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [activeStep, setActiveStep] = useState(0);
@@ -75,6 +78,7 @@ const BookingStepper = ({ onClose, solutionTitle }) => {
         createAppointment(appointmentData)
           .then(() => {
             // Successful API call, perform any necessary actions (e.g., show a success message)
+            setOpen(true);
             onClose();
           })
           .catch((error) => {
@@ -164,13 +168,13 @@ const BookingStepper = ({ onClose, solutionTitle }) => {
                     Back
                   </ButtonApp>
                   <Box sx={{ flex: "1 1 auto" }} />
-                  <Button
+                  <ButtonApp
                     variant="contained"
                     onClick={handleNext}
                     sx={{ mt: 1, mr: 1 }}
                   >
                     {index === steps.length - 1 ? "Finish" : "Next"}
-                  </Button>
+                  </ButtonApp>
                 </Box>
               </StepContent>
             </Step>
@@ -236,9 +240,13 @@ const BookingStepper = ({ onClose, solutionTitle }) => {
                 >
                   Back
                 </ButtonApp>
-                <Button variant="contained" onClick={handleNext} sx={{ mt: 1 }}>
+                <ButtonApp
+                  variant="contained"
+                  onClick={handleNext}
+                  sx={{ mt: 1 }}
+                >
                   {activeStep === steps.length - 1 ? "Finish" : "Next"}
-                </Button>
+                </ButtonApp>
               </Box>
             </Box>
           )}
