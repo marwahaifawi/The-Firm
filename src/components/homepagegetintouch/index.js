@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
@@ -25,10 +26,33 @@ const subjects = [
 ];
 
 const GetInTouch = () => {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_ookeyt4",
+        "template_xrzphdi",
+        form.current,
+        "-7Exf-bWzD1yN4UBV"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          console.log("message sent")
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  };
   return (
     <Stack>
       <Box
         component="form"
+        ref={form}
         sx={{
           display: "flex",
           alignItems: "center",
@@ -52,6 +76,7 @@ const GetInTouch = () => {
             id="standard-required"
             label="Name"
             defaultValue="Your Name"
+            name="toName"
             variant="standard"
           />
           <TextField
@@ -59,6 +84,7 @@ const GetInTouch = () => {
             label="Email"
             defaultValue="Your Email"
             variant="standard"
+            name="toEmail"
           />
         </Box>
         <Box>
@@ -74,6 +100,7 @@ const GetInTouch = () => {
             label="Subject"
             defaultValue=""
             variant="standard"
+            name="message"
           >
             {subjects.map((option) => (
               <MenuItem key={option.value} value={option.value}>
@@ -83,7 +110,9 @@ const GetInTouch = () => {
           </TextField>
         </Box>
         <Box>
-          <ButtonApp variant="contained">Submit</ButtonApp>
+          <ButtonApp onClick={sendEmail} variant="contained">
+            Submit
+          </ButtonApp>
         </Box>
       </Box>
     </Stack>

@@ -131,7 +131,6 @@ const BookingStepper = ({ onClose, solutionTitle }) => {
                         value={appointmentData[field.name] || ""}
                         onChange={handleInputChange}
                         name={field.name}
-                        required
                       >
                         {step.menuItems.map((item) => (
                           <MenuItem key={item.value} value={item.value}>
