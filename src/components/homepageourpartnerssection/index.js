@@ -17,26 +17,26 @@ const OurPartnersSection = () => {
       <Typography variant="h4" textAlign="center">
         Our Partners
       </Typography>
-      <Container alignItems="center" justifyContent="center">
+      <Container>
         <Grid container spacing={1} justifyContent="center" alignItems="center">
           <Grid item xs={12} sm={6} md={3}>
             <Link to="https://www.google.com" target="_blank" rel="noopener noreferrer">
-              <IconCard iconImage={Google} hoverImage={googleHovered} />
+              <IconCard iconimage={Google} hoverimage={googleHovered} />
             </Link>
           </Grid>
           <Grid item xs={12} sm={6} md={3}>
             <Link to="https://www.microsoft.com" target="_blank" rel="noopener noreferrer">
-              <IconCard iconImage={Windows} hoverImage={WindowsHovered} />
+              <IconCard iconimage={Windows} hoverimage={WindowsHovered} />
             </Link>
           </Grid>
           <Grid item xs={12} sm={6} md={3}>
             <Link to="https://www.mozilla.org" target="_blank" rel="noopener noreferrer">
-              <IconCard iconImage={FireFox} hoverImage={FireFoxHovered} />
+              <IconCard iconimage={FireFox} hoverimage={FireFoxHovered} />
             </Link>
           </Grid>
           <Grid item xs={12} sm={6} md={3}>
             <Link to="https://www.apple.com/safari/" target="_blank" rel="noopener noreferrer">
-              <IconCard iconImage={Safari} hoverImage={SafariHovered} />
+              <IconCard iconimage={Safari} hoverimage={SafariHovered} />
             </Link>
           </Grid>
         </Grid>

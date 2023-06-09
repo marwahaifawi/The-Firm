@@ -74,7 +74,7 @@ const Login = () => {
                 }}
               />
 
-              <Grid item xs fullWidth>
+              <Grid item xs>
                 <Stack
                   direction="row"
                   alignItems="center"

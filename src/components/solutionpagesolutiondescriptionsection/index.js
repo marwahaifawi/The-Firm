@@ -31,7 +31,7 @@ const SolutionDescription = () => {
     <Stack mt={20} alignItems="center" justifyContent="center">
       <Grid container alignItems={"stretch"}>
         {solutions.map((item, index) => (
-          <Grid mt={8} item>
+          <Grid key={index} mt={8} item>
             <SolutionsDescriptions
               image={item.image}
               description={item.description}
