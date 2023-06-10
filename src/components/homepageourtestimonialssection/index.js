@@ -27,7 +27,6 @@ const OurTestimonials = () => {
       const allTestimonials = await getTestimonials();
       if (allTestimonials) setTestimonials(allTestimonials);
     };
-
     fetchTestimonials();
   }, []);
 
