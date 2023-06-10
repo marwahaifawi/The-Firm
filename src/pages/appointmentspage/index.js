@@ -15,10 +15,15 @@ const AppointmentsPage = () => {
     try {
       const q = query(collection(db, "users"), where("uid", "==", user?.uid));
       const doc = await getDocs(q);
-      const data = doc.docs[0].data();
-      setName(data.name);
+      const data = doc.docs[0]?.data();
+      if (data) {
+        setName(data.name);
+      } else {
+        navigate("/login");
+      }
     } catch (err) {
-      alert("An error occurred while fetching user data");
+      // Handle the error, e.g., display a toast notification or error message within the component
+      console.error("Error fetching user data:", err);
     }
   };
 
@@ -27,9 +32,14 @@ const AppointmentsPage = () => {
     if (user) {
       fetchUserName();
     } else {
-        navigate("/login"); 
+      navigate("/login");
     }
-  }, [user, loading, navigate ]);
+  }, [user, loading, navigate]);
+
+  if (loading) {
+    // Render a loading indicator or a placeholder component while fetching user data
+    return <div>Loading...</div>;
+  }
 
   return (
     <Stack>
@@ -43,7 +53,7 @@ const AppointmentsPage = () => {
         Your Appointments
       </Typography>
       <Container mt={5}>
-        <AppointmentsTable/>
+        <AppointmentsTable />
       </Container>
     </Stack>
   );
