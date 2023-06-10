@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-import { Stack, Grid, Typography } from "@mui/material";
 import SolutionCard from "../../components/solutioncard";
 import ButtonApp from "../../shared/button";
+import { Stack, Grid } from "@mui/material";
+import { Typography } from "@mui/material";
 import Solutions from "./solutionsData";
 
 const SolutionsSection = () => {
-  const [showFullContent, setShowFullContent] = useState(false);
+  const [expanded, setExpanded] = useState(false);
 
-  const handleReadMoreClick = () => {
-    setShowFullContent(true);
+  const handleReadMore = () => {
+    setExpanded(!expanded); // Toggle the expanded state
   };
 
   return (
@@ -49,7 +50,7 @@ const SolutionsSection = () => {
           variant="body2"
           lineHeight={2}
         >
-          {showFullContent ? (
+          {expanded ? (
             <>
               Discover optimal solutions for businesses: digital partnerships,
               SEO optimization, online booking, and professional coaching. These
@@ -60,20 +61,13 @@ const SolutionsSection = () => {
           ) : (
             <>
               Discover optimal solutions for businesses: digital partnerships,
-              SEO optimization, online booking, and professional coaching.
+              SEO optimization, online booking, and professional coaching....
             </>
           )}
         </Typography>
-        {!showFullContent && (
-          <ButtonApp variant="contained" onClick={handleReadMoreClick}>
-            Read More
-          </ButtonApp>
-        )}
-        {showFullContent && (
-          <ButtonApp variant="contained" onClick={handleReadMoreClick}>
-            Read Less
-          </ButtonApp>
-        )}
+        <ButtonApp variant="contained" onClick={handleReadMore}>
+          {expanded ? "Read Less" : "Read More"}
+        </ButtonApp>
       </Stack>
     </Stack>
   );

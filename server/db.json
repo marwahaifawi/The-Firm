@@ -31,7 +31,18 @@
       "description": "Learn how Learning Management Systems (LMS) maximize return on investment (ROI) for corporate learning programs."
     }
   ],
-  "appointments": [],
+  "appointments": [
+    {
+      "solutionTitle": "Digital Partner",
+      "phone": "+970598738339",
+      "role": "Employee",
+      "date": "2023-06-07",
+      "time": "02:13",
+      "instructorName": "Marwa Salah",
+      "additionalInfo": "szsdasdasd",
+      "id": 1
+    }
+  ],
   "testimonials": [
     {
       "id": "0",
