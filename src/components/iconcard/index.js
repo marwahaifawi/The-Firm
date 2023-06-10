@@ -55,9 +55,9 @@ const IconCard = ({ iconimage, hoverimage }) => {
       onMouseOut={handleMouseOut}
     >
       <Item elevation={6} iconimage={iconimage} hoverimage={hoverimage}>
-        <div style={styles.imageContainer}>
+        <Box style={styles.imageContainer}>
           <img alt="partnerCompanyImage" src={imageSrc} style={styles.image} />
-        </div>
+        </Box>
       </Item>
     </Box>
   );
