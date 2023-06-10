@@ -1,45 +1,12 @@
 import React, { useState } from "react";
+import { Stack, Grid, Typography } from "@mui/material";
 import SolutionCard from "../../components/solutioncard";
 import ButtonApp from "../../shared/button";
-import { Stack, Grid } from "@mui/material";
-import { Typography } from "@mui/material";
-import CoachingIcon from "../../assets/coachingIcon.svg";
-import DigitalPartner from "../../assets/digitalPartnerIcon.svg";
-import SEO from "../../assets/seoIcon.svg";
-import Booking from "../../assets/bookingIcon.svg";
-
-const Solutions = [
-  {
-    icon: CoachingIcon,
-    title: "Coaching",
-    description: "Dive into the world of Learning Management Systems (LMS)",
-    path: "/solutions",
-  },
-  {
-    icon: DigitalPartner,
-    title: "Digital Partner",
-    description: "Explore how Learning Management Systems (LMS) extends",
-    path: "/solutions",
-
-  },
-  {
-    icon: SEO,
-    title: "SEO",
-    description: "Learn how Learning Management Systems (LMS)",
-    path: "/solutions",
-
-  },
-  {
-    icon: Booking,
-    title: "Booking",
-    description: "Book appointments with experts easily now!",
-    path: "/solutions",
-
-  },
-];
+import Solutions from "./solutionsData";
 
 const SolutionsSection = () => {
   const [showFullContent, setShowFullContent] = useState(false);
+
   const handleReadMoreClick = () => {
     setShowFullContent(true);
   };
@@ -103,7 +70,9 @@ const SolutionsSection = () => {
           </ButtonApp>
         )}
         {showFullContent && (
-          <Typography variant="body2">Thank you for reading more!</Typography>
+          <ButtonApp variant="contained" onClick={handleReadMoreClick}>
+            Read Less
+          </ButtonApp>
         )}
       </Stack>
     </Stack>

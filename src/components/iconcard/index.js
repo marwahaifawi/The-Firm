@@ -13,6 +13,7 @@ const IconCard = ({ iconimage, hoverimage }) => {
   const handleMouseOut = () => {
     setHover(false);
   };
+
   const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
     height: "120px",
@@ -28,6 +29,7 @@ const IconCard = ({ iconimage, hoverimage }) => {
       backgroundImage: hoverimage,
     },
   }));
+
   const styles = {
     imageContainer: {
       display: "flex",
@@ -40,6 +42,7 @@ const IconCard = ({ iconimage, hoverimage }) => {
       maxHeight: "100%",
     },
   };
+
   const imageSrc = hover ? hoverimage : iconimage;
 
   return (
