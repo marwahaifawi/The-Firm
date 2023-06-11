@@ -38,11 +38,10 @@ const GetInTouch = () => {
       )
       .then(
         (result) => {
-          console.log(result.text);
-          console.log("message sent");
+          // console.log(result.text);
         },
         (error) => {
-          console.log(error.text);
+          // console.log(error.text);
         }
       );
   };

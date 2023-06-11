@@ -24,7 +24,7 @@ const AppointmentsTable = () => {
       const response = await api.get(`/appointments?email=${user.email}`);
       setAppointments(response.data);
     } catch (error) {
-      console.error("Error fetching appointments:", error);
+      // console.error("Error fetching appointments:", error);
     }
   };
 
@@ -36,12 +36,12 @@ const AppointmentsTable = () => {
     const apiUrl = `http://localhost:3006/appointments/${id}`;
     axios
       .delete(apiUrl)
-      .then((response) => {
+      .then(() => {
         // Handle the successful deletion, such as updating the appointments list
         getAppointments();
       })
       .catch((error) => {
-        console.error("Error deleting appointment:", error);
+        // console.error("Error deleting appointment:", error);
       });
   };
 

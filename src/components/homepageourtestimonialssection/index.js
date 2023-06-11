@@ -18,7 +18,7 @@ const OurTestimonials = () => {
       const response = await api.get("/testimonials");
       return response.data;
     } catch (error) {
-      console.error("Error retrieving testimonials:", error);
+      // console.error("Error retrieving testimonials:", error);
     }
   };
 

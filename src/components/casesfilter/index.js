@@ -25,7 +25,7 @@ const CasesFilter = () => {
         setCases(allCases);
         setFilteredCases(allCases);
       } catch (error) {
-        console.error("Error retrieving cases:", error);
+        // console.error("Error retrieving cases:", error);
       }
     };
 

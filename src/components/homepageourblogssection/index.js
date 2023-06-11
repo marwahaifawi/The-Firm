@@ -13,7 +13,7 @@ const OurBlogs = () => {
         const response = await api.get("/blogs");
         setBlogs(response.data);
       } catch (error) {
-        console.error("Error retrieving blogs:", error);
+        // console.error("Error retrieving blogs:", error);
       }
     };
 

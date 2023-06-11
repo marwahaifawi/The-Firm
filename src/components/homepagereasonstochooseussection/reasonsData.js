@@ -1,11 +1,11 @@
-import Branding from '../../assets/brandingImg.png';
-import BrandingIcon from '../../assets/branding.svg';
-import Reporting from '../../assets/reporting.png';
-import ReportingIcon from '../../assets/reportingicon.svg';
-import MarketResearch from '../../assets/marhetresearch.png';
-import MarketSearchingIcon from '../../assets/marketresearchicon.svg';
-import DataAnalysis from '../../assets/dataanalysis.png';
-import DataAnalysisIcon from '../../assets/dataanalysisIcon.svg';
+import Branding from '../../assets/reasonstochooseusimgs/brandingImg.png';
+import BrandingIcon from '../../assets/reasonstochooseusimgs/branding.svg';
+import Reporting from '../../assets/reasonstochooseusimgs/reporting.png';
+import ReportingIcon from '../../assets/reasonstochooseusimgs/reportingicon.svg';
+import MarketResearch from '../../assets/reasonstochooseusimgs/marketresearch.png';
+import MarketSearchingIcon from '../../assets/reasonstochooseusimgs/marketresearchicon.svg';
+import DataAnalysis from '../../assets/reasonstochooseusimgs/dataanalysis.png';
+import DataAnalysisIcon from '../../assets/reasonstochooseusimgs/dataanalysisIcon.svg';
 
 const reasonsData = [
   {

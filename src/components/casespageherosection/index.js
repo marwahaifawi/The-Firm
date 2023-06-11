@@ -1,7 +1,7 @@
 import React from "react";
 import Stack from "@mui/material/Stack";
 import { Typography } from "@mui/material";
-import CasesImage from "../../assets/casesPageHeroSectionImg.png";
+import CasesImage from "../../assets/herosectionimgs/casesPageHeroSectionImg.png";
 import useStyles from "./casesPageHeroSectionStyles";
 
 const CasesPageHeroSection = () => {

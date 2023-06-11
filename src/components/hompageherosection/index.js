@@ -1,7 +1,7 @@
 import React from "react";
 import Stack from "@mui/material/Stack";
 import { Typography } from "@mui/material";
-import HomeImage from "../../assets/homepageHeroSectionImg.png";
+import HomeImage from "../../assets/herosectionimgs/homepageHeroSectionImg.png";
 import { useStyles } from "./HomePageHeroSection.styles";
 const HomePageHeroSection = () => {
   const classes = useStyles();
