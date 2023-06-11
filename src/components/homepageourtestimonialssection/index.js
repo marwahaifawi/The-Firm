@@ -10,7 +10,7 @@ import styles from "./index.module.css";
 SwiperCore.use([Pagination]);
 
 const OurTestimonials = () => {
-  const [activeSlideIndex, setActiveSlideIndex] = useState(0);
+  const [activeSlideIndex, setActiveSlideIndex] = useState(1);
   const [testimonials, setTestimonials] = useState([]);
 
   const getTestimonials = async () => {
@@ -31,7 +31,7 @@ const OurTestimonials = () => {
   }, []);
 
   const handleSlideChange = (swiper) => {
-    setActiveSlideIndex(swiper.activeIndex);
+    setActiveSlideIndex(swiper.activeIndex +1);
   };
 
   return (
