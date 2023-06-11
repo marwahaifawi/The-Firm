@@ -36,7 +36,7 @@ const AppointmentsTable = () => {
     const apiUrl = `http://localhost:3006/appointments/${id}`;
     axios
       .delete(apiUrl)
-      .then(() => {
+      .then((response) => {
         // Handle the successful deletion, such as updating the appointments list
         getAppointments();
       })

@@ -9,6 +9,7 @@ export const UserContext = createContext(null);
 const UserProvider = ({ children }) => {
   const [user, loading] = useAuthState(auth);
   const [name, setName] = useState("");
+  const [token, setToken] = useState("");
 
   useEffect(() => {
     if (loading) return;
@@ -29,13 +30,24 @@ const UserProvider = ({ children }) => {
     fetchUserName();
   }, [user, loading]);
 
+  useEffect(() => {
+    if (user) {
+      user.getIdToken().then((token) => {
+        setToken(token);
+      });
+    }
+  }, [user]);
+
   const logoutUser = () => {
+    setToken(null);
+
     logout();
   };
 
   const userContextValue = {
     user,
     name,
+    token,
     logoutUser,
   };
 
