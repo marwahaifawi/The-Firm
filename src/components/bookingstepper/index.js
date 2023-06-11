@@ -13,10 +13,6 @@ import TextField from "@mui/material/TextField";
 import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import Select from "@mui/material/Select";
-import Alert from "@mui/material/Alert";
-import IconButton from "@mui/material/IconButton";
-import Collapse from "@mui/material/Collapse";
-import CloseIcon from "@mui/icons-material/Close";
 import MenuItem from "@mui/material/MenuItem";
 import axios from "axios";
 const steps = [
@@ -54,7 +50,7 @@ const steps = [
   },
 ];
 
-const BookingStepper = ({ onClose, solutionTitle, setOpen }) => {
+const BookingStepper = ({ onClose, solutionTitle, setOpen , user }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [activeStep, setActiveStep] = useState(0);
@@ -114,8 +110,10 @@ const BookingStepper = ({ onClose, solutionTitle, setOpen }) => {
     appointmentData = {
       ...appointmentData,
       solutionTitle: solutionTitle,
+      name: user.name, // Assuming the user object contains the name
+      email: user.email, // Assuming the user object contains the email
     };
-
+  
     return axios.post(apiUrl, appointmentData, { headers });
   };
 

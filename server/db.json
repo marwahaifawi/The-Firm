@@ -41,7 +41,7 @@
       "instructorName": "Marwa Salah",
       "additionalInfo": "szsdasdasd",
       "id": 1,
-      "email":"marwa.fawzi.salah@gmail.com"
+      "email": "marwa.fawzi.salah@gmail.com"
     },
     {
       "solutionTitle": "Digital Partner",
@@ -52,6 +52,26 @@
       "instructorName": "Marwa Salah",
       "additionalInfo": "user marwa.10102.mm@gmail.com",
       "id": 2
+    },
+    {
+      "solutionTitle": "Digital Partner",
+      "phone": "0598738339",
+      "role": "Employee",
+      "date": "2023-06-14",
+      "time": "11:29",
+      "instructorName": "Marwa Salah",
+      "userEmail": "marwa.10102.mm@gmail.com",
+      "id": 3
+    },
+    {
+      "solutionTitle": "Digital Partner",
+      "phone": "0598738339",
+      "role": "Manager",
+      "date": "2023-06-06",
+      "time": "11:37",
+      "instructorName": "Marwa Salah",
+      "email": "marwa.10102.mm@gmail.com",
+      "id": 4
     }
   ],
   "testimonials": [

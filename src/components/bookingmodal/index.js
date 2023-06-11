@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Backdrop from "@mui/material/Backdrop";
 import Stack from "@mui/material/Stack";
 import Modal from "@mui/material/Modal";
@@ -6,6 +6,7 @@ import Fade from "@mui/material/Fade";
 import Typography from "@mui/material/Typography";
 import ButtonApp from "../../shared/button";
 import BookingStepper from "../bookingstepper";
+import { UserContext } from "../../shared/authcontext";
 
 const style = {
   position: "absolute",
@@ -16,10 +17,17 @@ const style = {
   boxShadow: 24,
 };
 
-const BookingModal = ({ solutionTitle , setOpen }) => {
+const BookingModal = ({ solutionTitle, setOpen }) => {
   const [opens, setOpens] = React.useState(false);
-  const handleOpen = () => setOpens(true);
+  const handleOpen = () => {
+    if (user) {
+      setOpens(true);
+    } else {
+      alert("Please Sign in");
+    }
+  };
   const handleClose = () => setOpens(false);
+  const { user } = useContext(UserContext); // Access the user context
 
   return (
     <div>
@@ -53,6 +61,7 @@ const BookingModal = ({ solutionTitle , setOpen }) => {
               onClose={handleClose}
               solutionTitle={solutionTitle}
               setOpen={setOpen}
+              user={user}
             />
           </Stack>
         </Fade>
