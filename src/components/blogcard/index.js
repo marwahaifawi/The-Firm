@@ -17,7 +17,6 @@ const BlogCard = ({ blog }) => {
         display: "flex",
         flexDirection: "column",
         height: "100%",
-        cursor: "pointer",
       }}
     >
       <CardMedia sx={{ height: 300, borderRadius: 1 }} image={blog.image} />
