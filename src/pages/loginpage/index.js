@@ -1,42 +1,42 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { TextField, FormControlLabel, Checkbox, Link, Grid, Box, Typography, Container, Divider, Stack } from "@mui/material";
+import TextField from "@mui/material/TextField";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import Link from "@mui/material/Link";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
 import ButtonApp from "../../shared/button";
-import { logInWithEmailAndPassword, auth } from "../../firebase";
-
+import { Divider, Stack } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { logInWithEmailAndPassword } from "../../firebase";
+import { auth } from "../../firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
 const Login = () => {
   const navigate = useNavigate();
-  const { register, handleSubmit } = useForm();
+  const { register } = useForm();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [user] = useAuthState(auth);
-  const [formData, setFormData] = useState({ email: "", password: "" });
-
   const handleSignUpClick = () => {
     navigate("/signup");
   };
-
   const handleResetClick = () => {
     navigate("/resetpassword");
   };
-
-  const onSubmit = () => {
-    logInWithEmailAndPassword(formData.email, formData.password);
-  };
-
   useEffect(() => {
-    if (user) {
-      navigate("/");
-    }
-  }, [user, navigate]);
-
+    if (user) navigate("/");
+  }, [user]);
   return (
     <Container maxWidth="xs">
       <Stack alignItems="center" mt={30} mb={30} direction="column">
         <Typography variant="h4" color="primary.main">
           Log In Please
         </Typography>
-        <Box alignItems="center" component="form" noValidate mt={3} mb={2} onSubmit={handleSubmit(onSubmit)}>
+        <Box alignItems="center" component="form" noValidate mt={3} mb={2}>
           <Grid container spacing={2} justifyContent="center">
             <Grid item xs={12}>
               <TextField
@@ -46,7 +46,7 @@ const Login = () => {
                 id="email"
                 label="Enter your email address"
                 name="email"
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                onChange={(e) => setEmail(e.target.value)}
                 sx={{
                   borderLeft: "5px solid",
                   borderRadius: "11px",
@@ -65,7 +65,7 @@ const Login = () => {
                 label="Enter your password"
                 name="password"
                 autoComplete="password"
-                onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+                onChange={(e) => setPassword(e.target.value)}
                 sx={{
                   borderLeft: "5px solid",
                   borderRadius: "11px",
@@ -73,17 +73,34 @@ const Login = () => {
                   borderColor: "primary.main",
                 }}
               />
-            </Grid>
-            <Grid item xs>
-              <Stack direction="row" alignItems="center" justifyContent="space-between" mt={1}>
-                <FormControlLabel control={<Checkbox value="remember" color="primary" />} label="Remember me" />
-                <Link className="clickable" onClick={handleResetClick} variant="body2">
-                  Forgot password?
-                </Link>
-              </Stack>
+
+              <Grid item xs>
+                <Stack
+                  direction="row"
+                  alignItems="center"
+                  justifyContent="space-between"
+                  mt={1}
+                >
+                  <FormControlLabel
+                    control={<Checkbox value="remember" color="primary" />}
+                    label="Remember me"
+                  />
+                  <Link
+                    className="clickable"
+                    onClick={handleResetClick}
+                    variant="body2"
+                  >
+                    Forgot password?
+                  </Link>
+                </Stack>
+              </Grid>
             </Grid>
             <Grid item>
-              <ButtonApp type="submit" variant="contained">
+              <ButtonApp
+                onClick={() => logInWithEmailAndPassword(email, password)}
+                type="submit"
+                variant="contained"
+              >
                 Log In
               </ButtonApp>
             </Grid>
@@ -95,7 +112,12 @@ const Login = () => {
             <Link color="#A7A7A6" href="#" variant="body2" underline="hover">
               Don’t have an account?
             </Link>
-            <Link className="clickable" variant="body2" onClick={handleSignUpClick}>
+
+            <Link
+              className="clickable"
+              variant="body2"
+              onClick={handleSignUpClick}
+            >
               SIGN UP
             </Link>
           </Grid>
