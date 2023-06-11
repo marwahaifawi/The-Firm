@@ -29,7 +29,7 @@ const Login = () => {
   };
   useEffect(() => {
     if (user) navigate("/");
-  }, [user]);
+  }, [user , navigate]);
   return (
     <Container maxWidth="xs">
       <Stack alignItems="center" mt={30} mb={30} direction="column">

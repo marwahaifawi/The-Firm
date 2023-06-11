@@ -1,43 +1,22 @@
 import { Container, Stack, Typography } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useEffect, useContext } from "react";
 import AppointmentsTable from "../../components/appointmentstable";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth, db } from "../../firebase";
-import { query, collection, getDocs, where } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../shared/authcontext";
 
 const AppointmentsPage = () => {
-  const [user, loading] = useAuthState(auth);
-  const [name, setName] = useState("");
-  const navigate = useNavigate();
+  const { user, loading } = useContext(UserContext);
 
-  const fetchUserName = async () => {
-    try {
-      const q = query(collection(db, "users"), where("uid", "==", user?.uid));
-      const doc = await getDocs(q);
-      const data = doc.docs[0]?.data();
-      if (data) {
-        setName(data.name);
-      } else {
-        navigate("/login");
-      }
-    } catch (err) {
-      // Handle the error, e.g., display a toast notification or error message within the component
-      console.error("Error fetching user data:", err);
-    }
-  };
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (loading) return;
-    if (user) {
-      fetchUserName();
-    } else {
+    if (!user) {
       navigate("/login");
     }
   }, [user, loading, navigate]);
 
   if (loading) {
-    // Render a loading indicator or a placeholder component while fetching user data
     return <div>Loading...</div>;
   }
 

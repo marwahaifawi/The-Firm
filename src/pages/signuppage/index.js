@@ -1,5 +1,14 @@
 import React, { useRef, useState, useEffect } from "react";
-import { TextField, Link, Grid, Box, Typography, Container, Divider, Stack } from "@mui/material";
+import {
+  TextField,
+  Link,
+  Grid,
+  Box,
+  Typography,
+  Container,
+  Divider,
+  Stack,
+} from "@mui/material";
 import ButtonApp from "../../shared/button";
 import { useNavigate } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -16,7 +25,7 @@ const SignUp = () => {
   const [confirmedPassword, setConfirmedPassword] = useState("");
   const [name, setName] = useState("");
   const [passwordsMatch, setPasswordsMatch] = useState(true);
-  const [user, loading, error] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
 
   useEffect(() => {
     if (loading) return;

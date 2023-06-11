@@ -40,7 +40,18 @@
       "time": "02:13",
       "instructorName": "Marwa Salah",
       "additionalInfo": "szsdasdasd",
-      "id": 1
+      "id": 1,
+      "email":"marwa.fawzi.salah@gmail.com"
+    },
+    {
+      "solutionTitle": "Digital Partner",
+      "phone": "0598738339",
+      "role": "Manager",
+      "date": "2023-06-28",
+      "time": "10:17",
+      "instructorName": "Marwa Salah",
+      "additionalInfo": "user marwa.10102.mm@gmail.com",
+      "id": 2
     }
   ],
   "testimonials": [

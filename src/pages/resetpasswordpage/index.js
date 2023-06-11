@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
+import React, { useEffect, useState , useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { sendPasswordReset } from "../../firebase";
-import { auth } from "../../firebase";
 import ButtonApp from "../../shared/button";
+import { UserContext } from "../../shared/authcontext";
+
 import {
   Box,
   Container,
@@ -14,12 +14,12 @@ import {
 } from "@mui/material";
 const ResetPassword = () => {
   const [email, setEmail] = useState("");
-  const [user, loading, error] = useAuthState(auth);
+  const { user, loading } = useContext(UserContext);
   const navigate = useNavigate();
   useEffect(() => {
     if (loading) return;
     if (user) navigate("/dashboard");
-  }, [user, loading]);
+  }, [user, loading , navigate]);
   return (
     <Container maxWidth="xs">
       <Stack alignItems="center" mt={30} mb={30} direction="column">

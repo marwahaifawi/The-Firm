@@ -1,6 +1,6 @@
-import Coaching from "../../assets/coachingSolutionImg.png";
-import DigitalPartner from "../../assets/digitalPartnerSolutionImg.png";
-import SEO from "../../assets/seoSolutionImg.png";
+import Coaching from "../../assets/oursolutionsimgs/coachingSolutionImg.png";
+import DigitalPartner from "../../assets/oursolutionsimgs/digitalPartnerSolutionImg.png";
+import SEO from "../../assets/oursolutionsimgs/seoSolutionImg.png";
 
 const solutionsData = [
   {

@@ -1,7 +1,7 @@
-import CoachingIcon from "../../assets/coachingIcon.svg";
-import DigitalPartner from "../../assets/digitalPartnerIcon.svg";
-import SEO from "../../assets/seoIcon.svg";
-import Booking from "../../assets/bookingIcon.svg";
+import CoachingIcon from "../../assets/oursolutionsimgs/coachingIcon.svg";
+import DigitalPartner from "../../assets/oursolutionsimgs/digitalPartnerIcon.svg";
+import SEO from "../../assets/oursolutionsimgs/seoIcon.svg";
+import Booking from "../../assets/oursolutionsimgs/bookingIcon.svg";
 
 const solutionsData = [
   {
