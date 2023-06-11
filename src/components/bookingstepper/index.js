@@ -202,7 +202,6 @@ const BookingStepper = ({ onClose, solutionTitle, setOpen , user }) => {
                       value={appointmentData[field.name] || ""}
                       onChange={handleInputChange}
                       name={field.name}
-                      required
                     >
                       {steps[activeStep].menuItems.map((item) => (
                         <MenuItem key={item.value} value={item.value}>
@@ -221,7 +220,6 @@ const BookingStepper = ({ onClose, solutionTitle, setOpen , user }) => {
                     onChange={handleInputChange}
                     fullWidth
                     margin="normal"
-                    required
                     error={!!fieldErrors[field.name]}
                     helperText={fieldErrors[field.name]}
                   />

@@ -10,7 +10,6 @@ import {
   IconButton,
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
-import EditIcon from "@mui/icons-material/Edit";
 import axios from "axios";
 import api from "../../api/api";
 import { UserContext } from "../../shared/authcontext";
@@ -68,10 +67,7 @@ const AppointmentsTable = () => {
               <TableCell>{appointment.time}</TableCell>
               <TableCell>{appointment.additionalInfo}</TableCell>
               <TableCell>{appointment.phone}</TableCell>
-              <TableCell>
-                <IconButton>
-                  <EditIcon />
-                </IconButton>
+              <TableCell>  
                 <IconButton
                   color="error"
                   onClick={() => handleDelete(appointment.id)}
