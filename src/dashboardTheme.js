@@ -1,5 +1,4 @@
 import { createTheme } from "@mui/material/styles";
-
 export const dashboardTheme = createTheme({
   breakpoints: {
     values: {
@@ -23,21 +22,17 @@ export const dashboardTheme = createTheme({
         fontSize: "1.5rem", // adjust font size for larger screens
         lineHeight: "2rem", // adjust line height for larger screens
       },
-      // ad more breakpoints as needed
     },
     h5: {
       "@media (max-width: 850px)": {
         fontSize: "1.3rem", // adjust font size for larger screens
       },
-      // ad more breakpoints as needed
     },
     body1: {
       "@media (max-width: 850px)": {
         fontSize: ".7rem", // adjust font size for larger screens
       },
-      // ad more breakpoints as needed
     },
-    // define other typography variants as needed
   },
   components: {
     MuiButton: {

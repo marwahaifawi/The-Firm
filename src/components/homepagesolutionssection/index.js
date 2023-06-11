@@ -1,35 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import SolutionCard from "../../components/solutioncard";
 import ButtonApp from "../../shared/button";
 import { Stack, Grid } from "@mui/material";
-import {Typography } from "@mui/material";
-import CoachingIcon from "../../assets/coachingIcon.svg";
-import DigitalPartner from ".././../assets/digitalPartnerIcon.svg";
-import SEO from "../../assets/seoIcon.svg";
-import Booking from "../../assets/bookingIcon.svg";
-const Solutions = [
-  {
-    icon: CoachingIcon,
-    title: "Coaching",
-    description: "Loren rasion gravida auemis bibenua tase",
-  },
-  {
-    icon: DigitalPartner,
-    title: "Digital Partner",
-    description: "Loren rasion gravida auemis bibenua tase",
-  },
-  {
-    icon: SEO,
-    title: "SEO",
-    description: "Loren rasion gravida auemis bibenua tase",
-  },
-  {
-    icon: Booking,
-    title: "Booking",
-    description: "Loren rasion gravida auemis bibenua tase",
-  },
-];
+import { Typography } from "@mui/material";
+import Solutions from "./solutionsData";
+
 const SolutionsSection = () => {
+  const [expanded, setExpanded] = useState(false);
+
+  const handleReadMore = () => {
+    setExpanded(!expanded); // Toggle the expanded state
+  };
+
   return (
     <Stack
       spacing={{ xs: 10, md: 2, lg: 8 }}
@@ -68,13 +50,24 @@ const SolutionsSection = () => {
           variant="body2"
           lineHeight={2}
         >
-          Discover optimal solutions for businesses: digital partnerships, SEO
-          optimization, online booking, and professional coaching. These
-          comprehensive strategies can propel your business forward, increase
-          online visibility, streamline customer bookings, and provide expert
-          guidance to enhance your success.
+          {expanded ? (
+            <>
+              Discover optimal solutions for businesses: digital partnerships,
+              SEO optimization, online booking, and professional coaching. These
+              comprehensive strategies can propel your business forward,
+              increase online visibility, streamline customer bookings, and
+              provide expert guidance to enhance your success.
+            </>
+          ) : (
+            <>
+              Discover optimal solutions for businesses: digital partnerships,
+              SEO optimization, online booking, and professional coaching....
+            </>
+          )}
         </Typography>
-        <ButtonApp variant="contained">Read More</ButtonApp>
+        <ButtonApp variant="contained" onClick={handleReadMore}>
+          {expanded ? "Read Less" : "Read More"}
+        </ButtonApp>
       </Stack>
     </Stack>
   );

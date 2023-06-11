@@ -1,33 +1,52 @@
-import React, { useState } from "react";
-import TextField from "@mui/material/TextField";
-import Link from "@mui/material/Link";
-import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
+import React, { useRef, useState, useEffect } from "react";
+import {
+  TextField,
+  Link,
+  Grid,
+  Box,
+  Typography,
+  Container,
+  Divider,
+  Stack,
+} from "@mui/material";
 import ButtonApp from "../../shared/button";
-import { Divider, Stack } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth, registerWithEmailAndPassword } from "../../firebase";
 
-export default function SignUp() {
+const SignUp = () => {
   const navigate = useNavigate();
-  const [user, setUser] = useState([
-    {
-      FullName: "",
-      Email: "",
-      Password: "",
-      PasswordConfirm: "",
-    },
-  ]);
+  const fullNameRef = useRef();
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const passwordConfirmedRef = useRef();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmedPassword, setConfirmedPassword] = useState("");
+  const [name, setName] = useState("");
+  const [passwordsMatch, setPasswordsMatch] = useState(true);
+  const [user, loading] = useAuthState(auth);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-  };
+  useEffect(() => {
+    if (loading) return;
+    if (user) navigate("/");
+  }, [user, loading, navigate]);
 
   const handleSignInClick = () => {
     navigate("/login");
+  };
+
+  const register = () => {
+    if (!name) {
+      alert("Please enter a name");
+      return;
+    }
+    if (password !== confirmedPassword) {
+      setPasswordsMatch(false);
+      return;
+    }
+    registerWithEmailAndPassword(name, email, password);
+    navigate("/");
   };
 
   return (
@@ -36,14 +55,7 @@ export default function SignUp() {
         <Typography variant="h4" color="primary.main">
           Sign Up Now
         </Typography>
-        <Box
-          alignItems="center"
-          component="form"
-          noValidate
-          onSubmit={handleSubmit}
-          mt={3}
-          mb={2}
-        >
+        <Box alignItems="center" component="form" noValidate mt={3} mb={2}>
           <Grid container spacing={2} justifyContent="center">
             <Grid item xs={12}>
               <TextField
@@ -59,7 +71,8 @@ export default function SignUp() {
                   boxShadow: "0px 5px 15px -3px rgba(60, 60, 59, 0.18)",
                   borderColor: "primary.main",
                 }}
-                onChange={(e) => setUser({ ...user, FullName: e.target.value })}
+                inputRef={fullNameRef}
+                onChange={(e) => setName(e.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
@@ -67,15 +80,16 @@ export default function SignUp() {
                 required
                 fullWidth
                 id="Email"
-                label="Enter your email address "
+                label="Enter your email address"
                 name="Email"
+                inputRef={emailRef}
+                onChange={(e) => setEmail(e.target.value)}
                 sx={{
                   borderLeft: "5px solid",
                   borderRadius: "11px",
                   boxShadow: "0px 2px 3px rgba(0, 0, 0, 0.1)",
                   borderColor: "primary.main",
                 }}
-                onChange={(e) => setUser({ ...user, Email: e.target.value })}
               />
             </Grid>
             <Grid item xs={12}>
@@ -83,15 +97,17 @@ export default function SignUp() {
                 required
                 fullWidth
                 id="password"
-                label="Enter your password "
+                label="Enter your password"
                 name="password"
+                type="password"
+                inputRef={passwordRef}
+                onChange={(e) => setPassword(e.target.value)}
                 sx={{
                   borderLeft: "5px solid",
                   borderRadius: "11px",
                   boxShadow: "0px 2px 3px rgba(0, 0, 0, 0.1)",
                   borderColor: "primary.main",
                 }}
-                onChange={(e) => setUser({ ...user, Password: e.target.value })}
               />
             </Grid>
             <Grid item xs={12}>
@@ -101,23 +117,25 @@ export default function SignUp() {
                 name="password"
                 label="Confirm password"
                 type="password"
-                id="password"
+                id="confirmedPassword"
+                inputRef={passwordConfirmedRef}
+                onChange={(e) => setConfirmedPassword(e.target.value)}
+                error={!passwordsMatch}
+                helperText={!passwordsMatch && "Passwords do not match"}
                 sx={{
                   borderLeft: "5px solid",
                   borderRadius: "11px",
                   boxShadow: "0px 2px 3px rgba(0, 0, 0, 0.1)",
                   borderColor: "primary.main",
                 }}
-                onChange={(e) =>
-                  setUser({ ...user, PasswordConfirmed: e.target.value })
-                }
               />
             </Grid>
             <Grid item>
               <ButtonApp
-                onClick={handleSubmit}
+                onClick={register}
                 type="submit"
                 variant="contained"
+                disabled={loading}
               >
                 Submit
               </ButtonApp>
@@ -127,10 +145,15 @@ export default function SignUp() {
         <Grid container justifyContent="center">
           <Grid item>
             <Divider variant="middle" />
-            <Link color="#A7A7A6"  variant="body2" >
-              Already have an account? 
+            <Link color="#A7A7A6" variant="body2">
+              Already have an account?
             </Link>
-            <Link className="clickable" variant="body2" underline="hover" onClick={handleSignInClick}>
+            <Link
+              className="clickable"
+              variant="body2"
+              underline="hover"
+              onClick={handleSignInClick}
+            >
               Sign in
             </Link>
           </Grid>
@@ -138,4 +161,6 @@ export default function SignUp() {
       </Stack>
     </Container>
   );
-}
+};
+
+export default SignUp;

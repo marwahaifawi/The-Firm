@@ -1,18 +1,25 @@
 import { Container, Stack, Typography } from "@mui/material";
-import React from "react";
+import { useEffect, useContext } from "react";
 import AppointmentsTable from "../../components/appointmentstable";
+import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../shared/authcontext";
 
 const AppointmentsPage = () => {
-  const appointments = [
-    {
-      date: "2023-05-23",
-      time: "10:00 AM",
-      name: "John Doe",
-      solution: "SEO",
-      additionalInfo: "Lorem ipsum dolor sit amet",
-    },
-    // Add more appointment objects as needed
-  ];
+  const { user, loading } = useContext(UserContext);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (loading) return;
+    if (!user) {
+      navigate("/login");
+    }
+  }, [user, loading, navigate]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <Stack>
       <Typography
@@ -25,7 +32,7 @@ const AppointmentsPage = () => {
         Your Appointments
       </Typography>
       <Container mt={5}>
-        <AppointmentsTable appointments={appointments} />
+        <AppointmentsTable />
       </Container>
     </Stack>
   );

@@ -1,4 +1,4 @@
-import React, { useState, useContext, createContext } from "react";
+import React, { useContext , useState } from "react";
 import { Link } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -16,14 +16,11 @@ import ButtonApp from "./button";
 import NavBar from "../components/navbar";
 import { Stack } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { auth } from "../firebase";
-import { signOut } from "firebase/auth";
-
-const UserContext = createContext();
+import { UserContext } from "./authcontext";
 
 const HeaderApp = (props) => {
-  const userAuthentication = useContext(UserContext);
   const navigate = useNavigate();
+  const { user, logoutUser } = useContext(UserContext);
 
   const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -34,33 +31,42 @@ const HeaderApp = (props) => {
     { text: "Cases", link: "/casesPage" },
     { text: "Appointments", link: "/Appointments" },
   ];
-  const handleDrawerToggle = () => {
-    setMobileOpen((prevState) => !prevState);
-  };
 
-  const handleSignOutClick = () => {
-    navigate("/login");
-  };
   const handleSignUpClick = () => {
     navigate("/signup");
+  };
+  const handleDrawerToggle = () => {
+    setMobileOpen((prevState) => !prevState);
   };
   const drawer = (
     <Box onClick={handleDrawerToggle}>
       <List>
         {navItems.map((item, index) => (
-          <ListItem key={index} disablePadding>
+          <ListItem key={index}>
             <ListItemButton component={Link} to={item.link}>
               <ListItemText primary={item.text} />
             </ListItemButton>
           </ListItem>
         ))}
+        {user ? (
+          <ListItem>
+            <ButtonApp variant="contained" onClick={logoutUser} fullWidth>
+              Logout
+            </ButtonApp>
+          </ListItem>
+        ) : (
+          <ListItem>
+            <ButtonApp onClick={handleSignUpClick} variant="contained">
+              Sign Up
+            </ButtonApp>
+          </ListItem>
+        )}
       </List>
     </Box>
   );
 
   const container =
     window !== undefined ? () => window().document.body : undefined;
-
   return (
     <Stack>
       <AppBar component="nav" color="inherit" sx={{ boxShadow: "none" }}>
@@ -89,7 +95,6 @@ const HeaderApp = (props) => {
             {navItems.map((item, index) => (
               <NavBar
                 color="#1E1E1E"
-                underline="hover"
                 key={index}
                 linkTo={item.link}
                 variant="h6"
@@ -98,10 +103,12 @@ const HeaderApp = (props) => {
               </NavBar>
             ))}
 
-            {userAuthentication !== null ? (
-              <ButtonApp onClick={handleSignOutClick} variant="contained">
-                Sign Out
-              </ButtonApp>
+            {user ? (
+              <>
+                <ButtonApp variant="contained" onClick={logoutUser}>
+                  Logout
+                </ButtonApp>
+              </>
             ) : (
               <ButtonApp onClick={handleSignUpClick} variant="contained">
                 Sign Up
@@ -133,5 +140,4 @@ const HeaderApp = (props) => {
     </Stack>
   );
 };
-
 export default HeaderApp;
