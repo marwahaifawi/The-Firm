@@ -64,24 +64,23 @@ To deploy this project run
 ```
 
 
-## Screenshots
+## Resources
+Integrating Firebase Authentication, Hooks, and Context into your ReactJS App Article
 
-![Homepage](/screenshots/homepage.png)
-*Figure 1: The Firm homepage showcasing the various sections and resources available.*
+https://johnwcassidy.medium.com/firebase-authentication-hooks-and-context-d0e47395f402
 
-![Blog Section](/screenshots/blog_section.png)
-*Figure 2: The blog section, providing access to informative and educational blog posts.*
+React: Send email from contact form without server code - Email.js Tutorial, for get in touch section
 
-![Cases page](/screenshots/cases_section.png)
-*Figure 3: The cases section, presenting real-life business cases and their solutions.*
+https://www.youtube.com/watch?v=bMq2riFCF90&t=619s
+https://www.emailjs.com/
 
-![Appointments Table](/screenshots/mentorship_program.png)
-*Figure 4: The mentorship program, allowing users to book appointments with mentors.*
+JSON Server Tutorial
 
+https://www.youtube.com/watch?v=_1kNqAybxW0
 ## Demo
 
 
-Check out the live demo of The Firm at " ". Please note that the demo is a simulated environment with limited functionality and sample data.
+Check out the live demo of The Firm at "https://drive.google.com/file/d/1nhZzqK1rVZ68f3O_MpfLDzms18_Gj3j4/view?usp=drive_web&authuser=0". Please note that the demo is a simulated environment with limited functionality and sample data.
 
 ## Contributing
 
