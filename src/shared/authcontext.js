@@ -15,11 +15,9 @@ const AuthProvider = ({ children }) => {
     .then((userCredential) => {
         // User creation successful
         const user = userCredential.user;
-        console.log('User created:', user);
       })
       .catch((error) => {
         // Handle error
-        console.error('Error creating user:', error);
       });
   };
   useEffect(() => {

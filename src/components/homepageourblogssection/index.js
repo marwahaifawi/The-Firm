@@ -3,7 +3,7 @@ import { Grid, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import BlogCard from "../blogcard";
 import { Stack } from "@mui/material";
-import api from "../../api/blogs";
+import api from "../../api/api";
 
 const OurBlogs = () => {
   const [blogs, setBlogs] = useState([]);
@@ -41,6 +41,7 @@ const OurBlogs = () => {
               description={item.description}
               date={item.date}
               title={item.title}
+              link={item.link}
             />
           </Grid>
         ))}

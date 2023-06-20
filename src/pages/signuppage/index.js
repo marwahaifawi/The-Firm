@@ -6,15 +6,13 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import ButtonApp from "../../shared/button";
-import { Alert, Divider, Stack } from "@mui/material";
+import { Divider, Stack } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import {
   auth,
   registerWithEmailAndPassword,
-  signInWithGoogle,
 } from "../../firebase";
-
 export default function SignUp() {
   const navigate = useNavigate();
   const fullNameRef = useRef();
@@ -24,7 +22,6 @@ export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmedPassword, setConfirmedPassword] = useState("");
-
   const [name, setName] = useState("");
   const [passwordsMatch, setPasswordsMatch] = useState(true); // State to track if passwords match
 

@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import Backdrop from "@mui/material/Backdrop";
 import Stack from "@mui/material/Stack";
 import Modal from "@mui/material/Modal";
@@ -6,6 +6,7 @@ import Fade from "@mui/material/Fade";
 import Typography from "@mui/material/Typography";
 import ButtonApp from "../../shared/button";
 import BookingStepper from "../bookingstepper";
+
 const style = {
   position: "absolute",
   top: "50%",
@@ -14,10 +15,12 @@ const style = {
   bgcolor: "background.paper",
   boxShadow: 24,
 };
-const BookingModal = () => {
+
+const BookingModal = ({ solutionTitle }) => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
   return (
     <div>
       <ButtonApp onClick={handleOpen} variant={"contained"}>
@@ -45,9 +48,12 @@ const BookingModal = () => {
               id="transition-modal-title"
               variant="h5"
             >
-              Book An Appointment
+              Book An Appointment for {solutionTitle}
             </Typography>
-            <BookingStepper onClose={handleClose} />
+            <BookingStepper
+              onClose={handleClose}
+              solutionTitle={solutionTitle}
+            />
           </Stack>
         </Fade>
       </Modal>

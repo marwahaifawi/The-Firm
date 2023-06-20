@@ -13,6 +13,8 @@ import DataAnalysisIcon from "../../assets/dataanalysisIcon.svg";
 
 const ReasonsToChooseUs = () => {
   const [clicked, setClicked] = useState(0);
+  const [expanded, setExpanded] = useState(false);
+
   const reasons = [
     {
       name: "Market Research",
@@ -43,6 +45,10 @@ const ReasonsToChooseUs = () => {
         "Data analysis provides valuable information that helps businesses make informed decisions. By analyzing data patterns, trends, and correlations, organizations can identify opportunities, anticipate market shifts, and make strategic choices to optimize their operations and achieve their goals.",
     },
   ];
+
+  const handleReadMore = () => {
+    setExpanded(!expanded); // Toggle the expanded state
+  };
 
   return (
     <Stack mt={20} justifyContent="center" alignItems="center" spacing={7}>
@@ -102,9 +108,13 @@ const ReasonsToChooseUs = () => {
           >
             <Typography variant="h6"> {reasons[clicked].name}</Typography>
             <Typography variant="body2" lineHeight={2}>
-              {reasons[clicked].description}
+              {expanded
+                ? reasons[clicked].description
+                : reasons[clicked].description.substring(0, 150) + "..."}
             </Typography>
-            <ButtonApp variant="contained">Read More</ButtonApp>
+            <ButtonApp variant="contained" onClick={handleReadMore}>
+              {expanded ? "Read Less" : "Read More"}
+            </ButtonApp>
           </Stack>
         </Stack>
       )}
