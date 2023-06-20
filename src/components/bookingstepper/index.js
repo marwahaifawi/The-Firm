@@ -54,11 +54,7 @@ const BookingStepper = ({ onClose }) => {
       ...prevData,
       [name]: value,
     }));
-  };
-
-  const handleReset = () => {
-    setActiveStep(0);
-    setAppointmentData({});
+   
   };
 
   return (
@@ -118,9 +114,6 @@ const BookingStepper = ({ onClose }) => {
               <Typography sx={{ mt: 2, mb: 1 }}>
                 All steps completed - you're finished
               </Typography>
-              <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
-                <Button onClick={handleReset}>Reset</Button>
-              </Box>
             </>
           ) : (
             <Box sx={{ width: "100%" }}>

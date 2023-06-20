@@ -12,7 +12,6 @@ const SolutionPage = () => {
       <OurSolutionsCards/>
       <SolutionDescription/>
       <OurTestimonials/>
-      <OurTestimonials/>
     </Container>
   );
 };

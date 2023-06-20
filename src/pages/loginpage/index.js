@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useForm } from "react-hook-form";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
@@ -9,48 +10,23 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import ButtonApp from "../../shared/button";
 import { Divider, Stack } from "@mui/material";
-
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { logInWithEmailAndPassword } from "../../firebase";
 import { auth } from "../../firebase";
-import { signInWithEmailAndPassword } from "firebase/auth";
-// import IconButton from "@mui/material/IconButton";
-// import Input from "@mui/material/Input";
-// import FilledInput from "@mui/material/FilledInput";
-// import OutlinedInput from "@mui/material/OutlinedInput";
-// import InputLabel from "@mui/material/InputLabel";
-// import InputAdornment from "@mui/material/InputAdornment";
-// import FormHelperText from "@mui/material/FormHelperText";
-// import FormControl from "@mui/material/FormControl";
-// import Visibility from "@mui/icons-material/Visibility";
-// import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import { useAuthState } from "react-firebase-hooks/auth";
 const Login = () => {
   const navigate = useNavigate();
-  const [showPassword, setShowPassword] = React.useState(false);
-  const [user, setUser] = useState([
-    {
-      Email: "",
-      Password: "",
-    },
-  ]);
-  const handleSubmit = (event) => {
-    signInWithEmailAndPassword(auth, user.Email, user.Password)
-      .then((userCredential) => {
-        console.log(userCredential);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-
-  // const handleClickShowPassword = () => setShowPassword((show) => !show);
-
-  // const handleMouseDownPassword = (event) => {
-  //   event.preventDefault();
-  // };
+  const { register } = useForm();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [user] = useAuthState(auth);
   const handleSignUpClick = () => {
     navigate("/signup");
   };
-
+  useEffect(() => {
+    if (user) navigate("/");
+  }, [user]);
   return (
     <Container maxWidth="xs">
       <Stack alignItems="center" mt={30} mb={30} direction="column">
@@ -61,36 +37,38 @@ const Login = () => {
           <Grid container spacing={2} justifyContent="center">
             <Grid item xs={12}>
               <TextField
+                {...register("email", { required: true })}
                 required
                 fullWidth
                 id="email"
-                label="Enter your email address "
+                label="Enter your email address"
                 name="email"
+                onChange={(e) => setEmail(e.target.value)}
                 sx={{
                   borderLeft: "5px solid",
                   borderRadius: "11px",
                   boxShadow: "0px 2px 3px rgba(0, 0, 0, 0.1)",
                   borderColor: "primary.main",
                 }}
-                onChange={(e) => setUser({ ...user, Email: e.target.value })}
               />
             </Grid>
             <Grid item xs={12}>
               <TextField
+                {...register("password", { required: true })}
                 required
                 fullWidth
                 id="password"
-                type={showPassword ? "text" : "password"}
-                label="Enter your password "
+                type="password"
+                label="Enter your password"
                 name="password"
                 autoComplete="password"
+                onChange={(e) => setPassword(e.target.value)}
                 sx={{
                   borderLeft: "5px solid",
                   borderRadius: "11px",
                   boxShadow: "0px 2px 3px rgba(0, 0, 0, 0.1)",
                   borderColor: "primary.main",
                 }}
-                onChange={(e) => setUser({ ...user, Password: e.target.value })}
               />
 
               <Grid item xs fullWidth>
@@ -112,7 +90,7 @@ const Login = () => {
             </Grid>
             <Grid item>
               <ButtonApp
-                onClick={handleSubmit}
+                onClick={() => logInWithEmailAndPassword(email, password)}
                 type="submit"
                 variant="contained"
               >
@@ -125,7 +103,7 @@ const Login = () => {
           <Grid item>
             <Divider variant="middle" />
             <Link color="#A7A7A6" href="#" variant="body2" underline="hover">
-              Don’t have an account ?
+              Don’t have an account?
             </Link>
 
             <Link
@@ -141,4 +119,5 @@ const Login = () => {
     </Container>
   );
 };
+
 export default Login;

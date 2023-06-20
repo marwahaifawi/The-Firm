@@ -1,15 +1,16 @@
 import React from "react";
-import { Container, Stack, Typography } from "@mui/material";
+import { Container, Stack, Typography, Grid } from "@mui/material";
+import { Link } from "react-router-dom";
 import IconCard from "../iconcard";
 import googleHovered from "../../assets/hoverdGoogleImg.png";
 import Google from "../../assets/google.jpg";
 import WindowsHovered from "../../assets/windowsHovered.webp";
 import Windows from "../../assets/widowsImg.png";
-import FireFoxHovered from "../../assets//hoveredFirFox.jpg";
+import FireFoxHovered from "../../assets/hoveredFirFox.jpg";
 import FireFox from "../../assets/firefoxImg.png";
 import Safari from "../../assets/safariImg.png";
 import SafariHovered from "../../assets/hoveredSafari.png";
-import Grid from "@mui/material/Grid";
+
 const OurPartnersSection = () => {
   return (
     <Stack justifyContent="center" alignItems="center" spacing={3} mt={10}>
@@ -18,25 +19,25 @@ const OurPartnersSection = () => {
       </Typography>
       <Container alignItems="center" justifyContent="center">
         <Grid container spacing={1} justifyContent="center" alignItems="center">
-          <Grid
-            justifyContent="center"
-            alignItems="center"
-            className="clickable"
-            item
-            xs={12}
-            sm={6}
-            md={3}
-          >
-            <IconCard  iconImage={Google} hoverImage={googleHovered} />
+          <Grid item xs={12} sm={6} md={3}>
+            <Link to="https://www.google.com" target="_blank" rel="noopener noreferrer">
+              <IconCard iconImage={Google} hoverImage={googleHovered} />
+            </Link>
           </Grid>
-          <Grid item xs={12} sm={6} md={3} className="clickable">
-            <IconCard iconImage={Windows} hoverImage={WindowsHovered} />
+          <Grid item xs={12} sm={6} md={3}>
+            <Link to="https://www.microsoft.com" target="_blank" rel="noopener noreferrer">
+              <IconCard iconImage={Windows} hoverImage={WindowsHovered} />
+            </Link>
           </Grid>
-          <Grid item xs={12} sm={6} md={3} className="clickable">
-            <IconCard iconImage={FireFox} hoverImage={FireFoxHovered} />
+          <Grid item xs={12} sm={6} md={3}>
+            <Link to="https://www.mozilla.org" target="_blank" rel="noopener noreferrer">
+              <IconCard iconImage={FireFox} hoverImage={FireFoxHovered} />
+            </Link>
           </Grid>
-          <Grid item xs={12} sm={6} md={3} className="clickable">
-            <IconCard iconImage={Safari} hoverImage={SafariHovered} />
+          <Grid item xs={12} sm={6} md={3}>
+            <Link to="https://www.apple.com/safari/" target="_blank" rel="noopener noreferrer">
+              <IconCard iconImage={Safari} hoverImage={SafariHovered} />
+            </Link>
           </Grid>
         </Grid>
       </Container>

@@ -1,18 +1,55 @@
 import { Container, Stack, Typography } from "@mui/material";
-import React from "react";
+import { useEffect, useState } from "react";
 import AppointmentsTable from "../../components/appointmentstable";
+import api from "../../api/appointments";
+
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth, db, logout } from "../../firebase";
+import { query, collection, getDocs, where } from "firebase/firestore";
+
+import { useNavigate } from "react-router-dom";
 
 const AppointmentsPage = () => {
-  const appointments = [
-    {
-      date: "2023-05-23",
-      time: "10:00 AM",
-      name: "John Doe",
-      solution: "SEO",
-      additionalInfo: "Lorem ipsum dolor sit amet",
-    },
-    // Add more appointment objects as needed
-  ];
+  const [appointments, setAppointments] = useState([]);
+  const getAppointments = async () => {
+    const response = await api.get("/appointments");
+    return response.data;
+  };
+  const [user, loading, error] = useAuthState(auth);
+  const [name, setName] = useState("");
+  const navigate = useNavigate();
+
+  const fetchUserName = async () => {
+    try {
+      const q = query(collection(db, "users"), where("uid", "==", user?.uid));
+      const doc = await getDocs(q);
+      const data = doc.docs[0].data();
+      console.log(data);
+      setName(data.name);
+    } catch (err) {
+      console.error(err);
+      alert("An error occurred while fetching user data");
+    }
+  };
+
+  useEffect(() => {
+    if (loading) return;
+
+    const getAllAppointments = async () => {
+      const allAppointments = await getAppointments();
+      if (allAppointments) setAppointments(allAppointments);
+    };
+
+    if (user) {
+      // User is authenticated
+      fetchUserName();
+      getAllAppointments();
+    } else {
+      // User is not authenticated
+      navigate("/login"); // Redirect to login page or handle as per your requirements
+    }
+  }, [user, loading, navigate]);
+
   return (
     <Stack>
       <Typography

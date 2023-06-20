@@ -8,7 +8,7 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { Stack, Box } from "@mui/material";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   iconButton: {
     color: "black",
     "&:hover": {
@@ -57,7 +57,8 @@ const SocialBar = ({ socials }) => {
             key={name}
             className={classes.iconButton}
             onMouseEnter={() => handleMouseEnter(index)}
-            onMouseLeave={() => handleMouseLeave()}
+            onMouseLeave={handleMouseLeave}
+            onClick={() => window.open(url, "_blank")}
           >
             {hoveredIndex === index ? (
               <Box color="primary.main">{icon}</Box>

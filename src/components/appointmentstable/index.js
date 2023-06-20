@@ -32,10 +32,10 @@ const AppointmentsTable = ({ appointments }) => {
           {appointments.map((appointment, index) => (
             <TableRow key={index}>
               <TableCell>{appointment.solution}</TableCell>
-              <TableCell>{appointment.name}</TableCell>
+              <TableCell>{appointment.mentor}</TableCell>
               <TableCell>{appointment.date}</TableCell>
               <TableCell>{appointment.time}</TableCell>
-              <TableCell>{appointment.additionalInfo}</TableCell>
+              <TableCell>{appointment.notes}</TableCell>
               <TableCell>
                 <IconButton>
                   <EditIcon />
